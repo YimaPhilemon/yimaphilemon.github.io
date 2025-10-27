@@ -5,62 +5,248 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yima Philemon | Portfolio</title>
   <style>
+    :root {
+      --fl-blue: #02569B;
+      --fl-lite: #0175C2;
+      --muted: #6b7280;
+      --bg: #f9fafb;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #f9f9f9;
-      color: #333;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: #0f172a;
+      line-height: 1.6;
+    }
+
+    /* ---------- Navbar ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid rgba(2,86,155,0.1);
+      box-shadow: 0 2px 10px rgba(15,23,42,0.04);
+      z-index: 50;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 700;
+      color: var(--fl-blue);
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      margin-left: 1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--fl-lite);
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background: linear-gradient(120deg, var(--fl-lite), var(--fl-blue));
+      color: white;
+      padding: 80px 20px;
       text-align: center;
     }
-    header {
-      background: #007acc;
-      color: white;
-      padding: 30px 10px;
-    }
-    h1 {
+
+    header h1 {
+      font-size: 2.5rem;
       margin: 0;
-      font-size: 2.5em;
     }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    /* ---------- Sections ---------- */
     section {
-      padding: 50px 20px;
-      max-width: 800px;
+      padding: 60px 20px;
+      max-width: 900px;
       margin: auto;
     }
-    .project {
-      background: white;
-      margin: 20px 0;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    h2 {
+      color: var(--fl-blue);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
     }
+
+    p {
+      color: #334155;
+      font-size: 1rem;
+    }
+
+    .project {
+      background: #fff;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.05);
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+    }
+
+    .project h3 {
+      margin-top: 0;
+      color: var(--fl-lite);
+    }
+
+    .project a {
+      color: var(--fl-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      background: #fff;
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.05);
+      margin-top: 40px;
+    }
+
+    .contact a {
+      color: var(--fl-blue);
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Footer ---------- */
     footer {
       margin-top: 50px;
-      padding: 20px;
-      font-size: 0.9em;
-      background: #007acc;
+      padding: 30px;
+      font-size: 0.95rem;
+      background: var(--fl-blue);
       color: white;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 6px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
+  <!-- ✅ Navbar -->
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="/">Yima Philemon</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="flutter-publisher.html">Flutter Publisher</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ Header -->
   <header>
     <h1>Yima Philemon</h1>
-    <p>Flutter Developer | AI Enthusiast | Designer</p>
+    <p>Flutter Developer • AI Enthusiast • Designer</p>
   </header>
 
-  <section>
+  <!-- ✅ About -->
+  <section id="about">
     <h2>About Me</h2>
-    <p>I'm a passionate Flutter developer building modern apps and digital experiences. I love combining design, code, and AI to make things that matter.</p>
+    <p>
+      I'm a passionate Flutter developer building modern apps and open-source packages that combine design, AI, and clean architecture.
+      I love creating beautiful user interfaces and smooth experiences powered by efficient, maintainable code.
+    </p>
+  </section>
 
-    <h2>Projects</h2>
+  <!-- ✅ Projects -->
+  <section id="projects">
+    <h2>Featured Projects</h2>
+
     <div class="project">
       <h3>Chat Pagination Plugin</h3>
-      <p>A Flutter package for smooth, real-time chat pagination with Riverpod support.</p>
-      <a href="https://github.com/yourusername/chat_pagination">View on GitHub</a>
+      <p>
+        A Flutter package for smooth, real-time chat pagination with Riverpod support.
+      </p>
+      <a href="https://github.com/YimaPhilemon/chat_pagination" target="_blank">View on GitHub →</a>
     </div>
 
+    <div class="project">
+      <h3>Easy Bubble Container</h3>
+      <p>
+        A customizable message bubble widget for chat UIs — used for Flutter messaging apps.
+      </p>
+      <a href="https://github.com/YimaPhilemon/easy_bubble_container" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project">
+      <h3>Flutter Chat Paginator</h3>
+      <p>
+        A light-weight widget for paginating messages smoothly, supporting jump-to-latest and grouped messages.
+      </p>
+      <a href="https://github.com/YimaPhilemon/flutter_chat_paginator" target="_blank">View on GitHub →</a>
+    </div>
+  </section>
+
+  <!-- ✅ Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>📧 <strong>Email:</strong> <a href="mailto:yimaphilemon@gmail.com">yimaphilemon56@gmail.com</a></p>
+      <p>🐙 <strong>GitHub:</strong> <a href="https://github.com/YimaPhilemon" target="_blank">github.com/YimaPhilemon</a></p>
+      <p>💙 <strong>Flutter Publisher:</strong> <a href="https://pub.dev/publishers/yimaphilemon" target="_blank">pub.dev/publishers/yimaphilemon</a></p>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
   <footer>
-    <p>© 2025 Yima Philemon — Built with ❤️ using GitHub Pages</p>
+    <p>© <span id="year"></span> Yima Philemon — Built with ❤️ using GitHub Pages</p>
   </footer>
+
+  <script>
+    // Auto-update footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

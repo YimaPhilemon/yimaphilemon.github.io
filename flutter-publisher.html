@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flutter Verified Publisher — Yima Philemon</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="/">yimaphilemon</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="https://github.com/YimaPhilemon" target="_blank">GitHub</a>
+        <a href="#packages">Packages</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <img class="flutter-logo" src="assets/flutter-logo.svg" alt="Flutter logo" />
+        <h1>Flutter Verified Publisher</h1>
+        <h2 class="subtitle">Yima Philemon — Open-source Flutter packages & plugins</h2>
+        <p class="lead">Maintainer of multiple Flutter packages focused on chat UI, pagination, and developer utilities. Verified publisher on pub.dev.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#packages">View packages</a>
+          <a class="btn outline" href="https://github.com/YimaPhilemon" target="_blank">View GitHub</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="card verified-card">
+          <img class="badge" src="assets/verified-badge.svg" alt="verified badge" />
+          <h3>Verified on pub.dev</h3>
+          <p>Publisher: <strong>yimaphilemon</strong></p>
+          <p class="muted">You can verify publisher packages on pub.dev and view package metadata there.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section about">
+      <h2>About</h2>
+      <p>I build and maintain Flutter packages with an emphasis on practical UI components and developer tooling. This page collects my verified publisher information and direct links to packages and source code so you can quickly evaluate and adopt them.</p>
+    </section>
+
+    <section id="packages" class="section packages">
+      <h2>Packages</h2>
+      <p class="muted">A curated list of published packages (links to pub.dev and GitHub). Clone, test, or contribute — welcome!</p>
+
+      <div class="grid">
+        <article class="pkg">
+          <h3>easy_bubble_container</h3>
+          <p class="pkg-desc">A flexible bubble container widget to build chat UIs with customizable tails and shapes.</p>
+          <div class="pkg-links">
+            <a class="chip" href="https://pub.dev/packages/easy_bubble_container" target="_blank">pub.dev</a>
+            <a class="chip" href="https://github.com/YimaPhilemon/easy_bubble_container" target="_blank">GitHub</a>
+          </div>
+        </article>
+
+        <article class="pkg">
+          <h3>chat_pagination</h3>
+          <p class="pkg-desc">Utilities to paginate chat history efficiently, load older messages, and handle streaming new messages.</p>
+          <div class="pkg-links">
+            <a class="chip" href="https://pub.dev/packages/chat_pagination" target="_blank">pub.dev</a>
+            <a class="chip" href="https://github.com/YimaPhilemon/chat_pagination" target="_blank">GitHub</a>
+          </div>
+        </article>
+
+        <article class="pkg">
+          <h3>flutter_chat_paginator</h3>
+          <p class="pkg-desc">A small paginator widget tailored for chat interfaces. Handles jump-to-latest, smooth prepend, and scroll anchoring.</p>
+          <div class="pkg-links">
+            <a class="chip" href="https://pub.dev/packages/flutter_chat_paginator" target="_blank">pub.dev</a>
+            <a class="chip" href="https://github.com/YimaPhilemon/flutter_chat_paginator" target="_blank">GitHub</a>
+          </div>
+        </article>
+
+      </div>
+      <p class="note">If you'd like more packages added or a different layout (table, cards with screenshots), edit <code>flutter-publisher.html</code> and update the package entries.</p>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2>Contact & Links</h2>
+      <ul class="links-list">
+        <li><strong>Website:</strong> <a href="https://yimaphilemon.github.io/" target="_blank">yimaphilemon.github.io</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/YimaPhilemon" target="_blank">github.com/YimaPhilemon</a></li>
+        <li><strong>pub.dev publisher:</strong> <a href="https://pub.dev/publishers/yimaphilemon/packages" target="_blank">pub.dev/publishers/yimaphilemon</a> (edit publisher slug if different)</li>
+      </ul>
+      <p class="muted">Want email or social links added? Edit the contact list or reply here and I’ll update the ZIP.</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© {year} Yima Philemon — Flutter Verified Publisher</p>
+      <p class="muted">Designed to be dropped into your GitHub Pages repo. Edit content in <code>flutter-publisher.html</code> or swap styles in <code>assets/style.css</code>.</p>
+    </div>
+  </footer>
+
+  <script>
+    // inject current year
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = new Date().getFullYear();
+      document.body.innerHTML = document.body.innerHTML.replace('{year}', y);
+    });
+  </script>
+</body>
+</html>
