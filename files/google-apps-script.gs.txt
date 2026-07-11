@@ -1,0 +1,20 @@
+// Paste this entire file into Extensions > Apps Script for your Google Sheet.
+// It appends every contact-form submission as a new row.
+
+const SHEET_NAME = 'Submissions';
+
+function doPost(e) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
+
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['Timestamp', 'Name', 'Email', 'Message']);
+  }
+
+  const params = e.parameter;
+  sheet.appendRow([new Date(), params.name || '', params.email || '', params.message || '']);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ result: 'success' }))
+    .setMimeType(ContentService.MimeType.JSON);
+}

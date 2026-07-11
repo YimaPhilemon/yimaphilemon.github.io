@@ -245,7 +245,11 @@ function initLightbox() {
 
 /**
  * Contact Form Client-side Handler
+ * Submissions are sent to a Google Apps Script Web App, which appends
+ * each one as a row in a Google Sheet. See files/google-apps-script.gs.txt.
  */
+const CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbybfAZEIivkOVI9IqKaKTG5x-lleciVR7gxjEBQD252IPeTtV5y0sIILgCA_EritafHlQ/exec';
+
 function initContactForm() {
   const form = document.querySelector('.contact-form');
   const successMsg = document.querySelector('.form-success-msg');
@@ -272,24 +276,59 @@ function initContactForm() {
       return;
     }
 
-    // Intercept action and show visual success
-    // In a real staging setup, this form submits to Formspree, Web3Forms, or Mailto.
-    // For static hosting we display a beautiful success feedback state.
-    if (successMsg) {
-      successMsg.textContent = `Thank you, ${nameInput.value.trim()}! Your message has been sent successfully.`;
-      successMsg.style.display = 'block';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    const showSuccess = () => {
+      if (successMsg) {
+        successMsg.textContent = `Thank you, ${nameInput.value.trim()}! Your message has been sent successfully.`;
+        successMsg.style.display = 'block';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 8000);
+      } else {
+        alert('Message sent successfully!');
+      }
       form.reset();
-      
-      // Auto scroll to success message
-      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      
-      // Auto hide after 8 seconds
-      setTimeout(() => {
-        successMsg.style.display = 'none';
-      }, 8000);
-    } else {
-      alert('Message sent successfully!');
-      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    };
+
+    const showError = () => {
+      alert('Sorry, something went wrong sending your message. Please try again or email me directly.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+    };
+
+    if (!CONTACT_FORM_ENDPOINT || CONTACT_FORM_ENDPOINT.startsWith('PASTE_')) {
+      console.warn('Contact form endpoint is not configured yet. See files/google-apps-script.gs.txt.');
+      showSuccess();
+      return;
     }
+
+    const payload = new FormData();
+    payload.append('name', nameInput.value.trim());
+    payload.append('email', emailInput.value.trim());
+    payload.append('message', messageInput.value.trim());
+
+    fetch(CONTACT_FORM_ENDPOINT, { method: 'POST', body: payload })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        if (data.result === 'success') {
+          showSuccess();
+        } else {
+          throw new Error('Unexpected response from server');
+        }
+      })
+      .catch((err) => {
+        console.error('Contact form submission failed:', err);
+        showError();
+      });
   });
 }
