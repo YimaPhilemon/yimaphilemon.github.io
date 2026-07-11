@@ -1,7 +1,11 @@
 // Paste this entire file into Extensions > Apps Script for your Google Sheet.
-// It appends every contact-form submission as a new row.
+// It appends every contact-form submission as a new row and emails you a notification.
+// After pasting/updating this code you must redeploy: Deploy > Manage deployments >
+// edit (pencil icon) > Version: New version > Deploy. Editing the code alone does not
+// update the live /exec URL.
 
 const SHEET_NAME = 'Submissions';
+const NOTIFY_EMAIL = 'yimaphilemon56@gmail.com';
 
 function doPost(e) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -12,9 +16,31 @@ function doPost(e) {
   }
 
   const params = e.parameter;
-  sheet.appendRow([new Date(), params.name || '', params.email || '', params.message || '']);
+  const name = params.name || '';
+  const email = params.email || '';
+  const message = params.message || '';
+
+  sheet.appendRow([new Date(), name, email, message]);
+
+  MailApp.sendEmail({
+    to: NOTIFY_EMAIL,
+    replyTo: email,
+    subject: `New portfolio contact form message from ${name}`,
+    body: `You received a new message from your portfolio contact form.\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n— Sent automatically from your Google Sheet's Apps Script.`
+  });
 
   return ContentService
     .createTextOutput(JSON.stringify({ result: 'success' }))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+// One-time helper: select "testAuth" in the function dropdown next to Run and
+// click Run. This triggers the "Review permissions" popup (if not already
+// granted) and sends you a test email. Safe to leave in the file afterward.
+function testAuth() {
+  MailApp.sendEmail({
+    to: NOTIFY_EMAIL,
+    subject: 'Apps Script auth test',
+    body: 'If you got this, MailApp is authorized correctly.'
+  });
 }

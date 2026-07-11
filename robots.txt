@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yimaphilemon.github.io/sitemap.xml
