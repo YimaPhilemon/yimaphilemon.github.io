@@ -985,15 +985,15 @@ textarea.form-input {
   display: block;
 }
 
-.gh-loading,
-.gh-error {
+.gh-loading {
   color: var(--text-muted);
   font-size: 0.95rem;
   grid-column: 1 / -1;
 }
 
-.gh-error a {
-  color: var(--accent-cyan);
+.gh-repo-degraded-note {
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 .gh-mini-card {

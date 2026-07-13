@@ -360,13 +360,15 @@ function initContactForm() {
 /**
  * GitHub Stats (Developer Snapshot section)
  * Pulls live data from GitHub's public REST API (no auth, no third-party
- * rendering service) so it never depends on someone else's uptime.
+ * rendering service) so it never depends on someone else's uptime. Stats
+ * are a nice-to-have flourish, not core content — if the API is unavailable,
+ * the whole card just hides itself rather than showing an error to visitors.
  */
-function initGithubStats() {
-  const grid = document.getElementById('gh-stats-grid');
-  if (!grid) return;
-
+function loadGithubStats(grid) {
   const username = grid.dataset.ghUsername;
+  const card = grid.closest('.glass-card');
+  if (card) card.style.display = '';
+  grid.innerHTML = '<p class="gh-loading">Loading live stats from GitHub…</p>';
 
   Promise.all([
     fetch(`https://api.github.com/users/${username}`).then((r) => {
@@ -413,18 +415,53 @@ function initGithubStats() {
       `;
     })
     .catch((err) => {
-      console.error('GitHub stats fetch failed:', err);
-      grid.innerHTML = `<p class="gh-error">Couldn't load live stats right now (GitHub API may be rate-limited). <a href="https://github.com/${username}" target="_blank">View profile on GitHub →</a></p>`;
+      console.error('GitHub stats fetch failed, hiding stats card:', err);
+      if (card) card.style.display = 'none';
     });
+}
+
+function initGithubStats() {
+  const grid = document.getElementById('gh-stats-grid');
+  if (!grid) return;
+  loadGithubStats(grid);
 }
 
 /**
  * Pinned Repositories (Developer Snapshot section)
+ * Repos are real portfolio content, so they always render — each repo is
+ * fetched independently (Promise.allSettled) and falls back to a plain
+ * name + link card if its own live data can't be loaded, instead of
+ * hiding the repo or showing an apology in its place.
  */
-function initGithubPinnedRepos() {
-  const grid = document.getElementById('gh-pinned-repos');
-  if (!grid) return;
+function renderRepoCard(owner, repo, tag, data) {
+  const isUtility = tag === 'utility';
+  const badge = isUtility ? '<span class="gh-repo-badge">🔧 Utility</span>' : '';
 
+  if (data) {
+    return `
+      <a class="glass-card gh-repo-card${isUtility ? ' gh-repo-utility' : ''}" href="${data.html_url}" target="_blank">
+        ${badge}
+        <h4>${data.name}</h4>
+        <p>${data.description || 'No description provided.'}</p>
+        <div class="gh-repo-meta">
+          <span>⭐ ${data.stargazers_count}</span>
+          <span>🍴 ${data.forks_count}</span>
+          <span>${data.language || '—'}</span>
+        </div>
+      </a>
+    `;
+  }
+
+  return `
+    <a class="glass-card gh-repo-card gh-repo-degraded${isUtility ? ' gh-repo-utility' : ''}" href="https://github.com/${owner}/${repo}" target="_blank">
+      ${badge}
+      <h4>${repo}</h4>
+      <p class="gh-repo-degraded-note">Live details unavailable right now — view on GitHub →</p>
+    </a>
+  `;
+}
+
+function loadGithubPinnedRepos(grid) {
   // Each entry is "owner/repo" or "owner/repo:tag" (currently only tag "utility" is used).
   const entries = (grid.dataset.ghRepos || '')
     .split(',')
@@ -436,35 +473,31 @@ function initGithubPinnedRepos() {
       return { owner, repo, tag };
     });
 
-  Promise.all(
+  grid.innerHTML = '<p class="gh-loading">Loading repositories from GitHub…</p>';
+
+  Promise.allSettled(
     entries.map((entry) =>
       fetch(`https://api.github.com/repos/${entry.owner}/${entry.repo}`).then((r) => {
         if (!r.ok) throw new Error(`repo request failed for ${entry.owner}/${entry.repo} (${r.status})`);
-        return r.json().then((data) => ({ repo: data, tag: entry.tag }));
+        return r.json();
       })
     )
-  )
-    .then((results) => {
-      grid.innerHTML = results
-        .map(({ repo, tag }) => {
-          const isUtility = tag === 'utility';
-          return `
-        <a class="glass-card gh-repo-card${isUtility ? ' gh-repo-utility' : ''}" href="${repo.html_url}" target="_blank">
-          ${isUtility ? '<span class="gh-repo-badge">🔧 Utility</span>' : ''}
-          <h4>${repo.name}</h4>
-          <p>${repo.description || 'No description provided.'}</p>
-          <div class="gh-repo-meta">
-            <span>⭐ ${repo.stargazers_count}</span>
-            <span>🍴 ${repo.forks_count}</span>
-            <span>${repo.language || '—'}</span>
-          </div>
-        </a>
-      `;
-        })
-        .join('');
-    })
-    .catch((err) => {
-      console.error('GitHub pinned repos fetch failed:', err);
-      grid.innerHTML = `<p class="gh-error">Couldn't load repositories right now (GitHub API may be rate-limited).</p>`;
-    });
+  ).then((results) => {
+    grid.innerHTML = entries
+      .map((entry, i) => {
+        const result = results[i];
+        if (result.status === 'rejected') {
+          console.error(`GitHub repo fetch failed for ${entry.owner}/${entry.repo}:`, result.reason);
+        }
+        const data = result.status === 'fulfilled' ? result.value : null;
+        return renderRepoCard(entry.owner, entry.repo, entry.tag, data);
+      })
+      .join('');
+  });
+}
+
+function initGithubPinnedRepos() {
+  const grid = document.getElementById('gh-pinned-repos');
+  if (!grid) return;
+  loadGithubPinnedRepos(grid);
 }
