@@ -8,7 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initSlideshow();
   initLightbox();
   initContactForm();
+  initLocalClock();
+  initGithubStats();
+  initGithubPinnedRepos();
 });
+
+/**
+ * Live Local Time Clock (Developer Snapshot section)
+ */
+function initLocalClock() {
+  const el = document.getElementById('local-time');
+  if (!el) return;
+
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Africa/Lagos',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  const tick = () => {
+    el.textContent = formatter.format(new Date());
+  };
+
+  tick();
+  setInterval(tick, 30000);
+}
 
 /**
  * Navbar & Responsive Menu Logic
@@ -331,4 +355,116 @@ function initContactForm() {
         showError();
       });
   });
+}
+
+/**
+ * GitHub Stats (Developer Snapshot section)
+ * Pulls live data from GitHub's public REST API (no auth, no third-party
+ * rendering service) so it never depends on someone else's uptime.
+ */
+function initGithubStats() {
+  const grid = document.getElementById('gh-stats-grid');
+  if (!grid) return;
+
+  const username = grid.dataset.ghUsername;
+
+  Promise.all([
+    fetch(`https://api.github.com/users/${username}`).then((r) => {
+      if (!r.ok) throw new Error(`users request failed (${r.status})`);
+      return r.json();
+    }),
+    fetch(`https://api.github.com/users/${username}/repos?per_page=100`).then((r) => {
+      if (!r.ok) throw new Error(`repos request failed (${r.status})`);
+      return r.json();
+    }),
+  ])
+    .then(([user, repos]) => {
+      const totalStars = repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+
+      const languageCounts = {};
+      repos.forEach((repo) => {
+        if (!repo.language) return;
+        languageCounts[repo.language] = (languageCounts[repo.language] || 0) + 1;
+      });
+      const topLanguages = Object.entries(languageCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map(([lang]) => lang);
+
+      grid.innerHTML = `
+        <div class="gh-mini-card">
+          <span class="gh-mini-label">Public Repos</span>
+          <span class="gh-mini-value">${user.public_repos}</span>
+        </div>
+        <div class="gh-mini-card">
+          <span class="gh-mini-label">Total Stars Earned</span>
+          <span class="gh-mini-value">${totalStars}</span>
+        </div>
+        <div class="gh-mini-card">
+          <span class="gh-mini-label">Followers</span>
+          <span class="gh-mini-value">${user.followers}</span>
+        </div>
+        <div class="gh-mini-card">
+          <span class="gh-mini-label">Most Used Languages</span>
+          <div class="gh-lang-list">
+            ${topLanguages.map((lang) => `<span class="gh-lang-tag">${lang}</span>`).join('') || '<span class="gh-lang-tag">N/A</span>'}
+          </div>
+        </div>
+      `;
+    })
+    .catch((err) => {
+      console.error('GitHub stats fetch failed:', err);
+      grid.innerHTML = `<p class="gh-error">Couldn't load live stats right now (GitHub API may be rate-limited). <a href="https://github.com/${username}" target="_blank">View profile on GitHub →</a></p>`;
+    });
+}
+
+/**
+ * Pinned Repositories (Developer Snapshot section)
+ */
+function initGithubPinnedRepos() {
+  const grid = document.getElementById('gh-pinned-repos');
+  if (!grid) return;
+
+  // Each entry is "owner/repo" or "owner/repo:tag" (currently only tag "utility" is used).
+  const entries = (grid.dataset.ghRepos || '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .map((entry) => {
+      const [path, tag] = entry.split(':');
+      const [owner, repo] = path.split('/');
+      return { owner, repo, tag };
+    });
+
+  Promise.all(
+    entries.map((entry) =>
+      fetch(`https://api.github.com/repos/${entry.owner}/${entry.repo}`).then((r) => {
+        if (!r.ok) throw new Error(`repo request failed for ${entry.owner}/${entry.repo} (${r.status})`);
+        return r.json().then((data) => ({ repo: data, tag: entry.tag }));
+      })
+    )
+  )
+    .then((results) => {
+      grid.innerHTML = results
+        .map(({ repo, tag }) => {
+          const isUtility = tag === 'utility';
+          return `
+        <a class="glass-card gh-repo-card${isUtility ? ' gh-repo-utility' : ''}" href="${repo.html_url}" target="_blank">
+          ${isUtility ? '<span class="gh-repo-badge">🔧 Utility</span>' : ''}
+          <h4>${repo.name}</h4>
+          <p>${repo.description || 'No description provided.'}</p>
+          <div class="gh-repo-meta">
+            <span>⭐ ${repo.stargazers_count}</span>
+            <span>🍴 ${repo.forks_count}</span>
+            <span>${repo.language || '—'}</span>
+          </div>
+        </a>
+      `;
+        })
+        .join('');
+    })
+    .catch((err) => {
+      console.error('GitHub pinned repos fetch failed:', err);
+      grid.innerHTML = `<p class="gh-error">Couldn't load repositories right now (GitHub API may be rate-limited).</p>`;
+    });
 }
