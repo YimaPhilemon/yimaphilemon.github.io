@@ -1088,6 +1088,35 @@ textarea.form-input {
   }
 }
 
+/* Recommended Tools / Affiliate Resources page */
+.resource-card {
+  display: block;
+  text-align: center;
+}
+
+.resource-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.resource-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-cyan);
+}
+
+.resource-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.resource-requires {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 /* Footer Section styling */
 footer {
   background: var(--bg-primary);
