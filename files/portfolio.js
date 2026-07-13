@@ -85,11 +85,14 @@ function initNavbar() {
     });
   }
 
-  // Highlight active page link based on URL
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  // Highlight active page link based on URL.
+  // Pages now live under clean folder URLs (e.g. /gallery/), so compare the
+  // first path segment rather than the old filename-based matching.
+  const currentSection = window.location.pathname.split('/').filter(Boolean)[0] || '';
   navItems.forEach(item => {
     const itemPath = item.getAttribute('href');
-    if (itemPath === currentPath) {
+    const itemSection = itemPath.split('/').filter(Boolean)[0] || '';
+    if (itemSection === currentSection) {
       item.parentElement.classList.add('active');
     } else {
       item.parentElement.classList.remove('active');
