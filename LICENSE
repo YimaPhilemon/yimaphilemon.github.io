@@ -19,3 +19,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Scope exception — personal content is not licensed
+
+The MIT License above covers the code only: the HTML/CSS/JS structure,
+layout, styling system, and functionality (contact form integration,
+GitHub stats widget, lightbox, slideshow, etc.).
+
+It does NOT extend to the personal content used to fill that template,
+which remains all rights reserved and may not be reused, including:
+
+- The name "Yima Philemon" and any personal branding
+- Photos, screenshots, and images in uploads/
+- Bio, testimonials, and project descriptions
+- Contact details (email, phone, WhatsApp) and social/profile links
+- The resume linked from the site
+- Third-party product links and affiliate codes on the Recommended Tools page
+
+If you fork or reuse this repository as a template, replace all of the
+above with your own before publishing.
