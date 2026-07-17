@@ -5,7 +5,7 @@
 // update the live /exec URL.
 
 const SHEET_NAME = 'Submissions';
-const NOTIFY_EMAIL = 'yimaphilemon56@gmail.com';
+const NOTIFY_EMAIL = 'you@example.com'; // set this to your own email address
 
 function doPost(e) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();

@@ -1,5 +1,5 @@
 /**
- * Yima Philemon - Premium Developer Portfolio Logic
+ * Portfolio Template - Site Logic
  * Clean, lightweight, zero-dependency vanilla JS for navigation, slideshow, lightbox, and forms.
  */
 
@@ -20,8 +20,9 @@ function initLocalClock() {
   const el = document.getElementById('local-time');
   if (!el) return;
 
+  // Set this to your own IANA timezone, e.g. 'America/New_York', 'Europe/London'.
   const formatter = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Africa/Lagos',
+    timeZone: 'UTC',
     hour: '2-digit',
     minute: '2-digit',
   });
@@ -275,7 +276,7 @@ function initLightbox() {
  * Submissions are sent to a Google Apps Script Web App, which appends
  * each one as a row in a Google Sheet. See files/google-apps-script.gs.txt.
  */
-const CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbybfAZEIivkOVI9IqKaKTG5x-lleciVR7gxjEBQD252IPeTtV5y0sIILgCA_EritafHlQ/exec';
+const CONTACT_FORM_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
 
 function initContactForm() {
   const form = document.querySelector('.contact-form');
