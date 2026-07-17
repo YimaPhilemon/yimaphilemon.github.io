@@ -1,26 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://yimaphilemon.github.io/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-008-0344_orig.jpg</image:loc>
+      <image:title>Featured Role Banner</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture003.jpg</image:loc>
+      <image:title>Featured gameplay screenshot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-025-15009_orig.png</image:loc>
+      <image:title>Featured interface layout</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture0000006_orig.jpg</image:loc>
+      <image:title>Featured landscape level design</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/wa-link-kw6gjo_orig.png</image:loc>
+      <image:title>WhatsApp Chat QR</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/screenshot-2024-02-24-161704_orig.png</image:loc>
+      <image:title>Client recommendation photo - T.D.A. H.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/screenshot-2023-09-16-103239_orig.png</image:loc>
+      <image:title>Client recommendation photo - Julian Rocholl</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/gemini-generated-image-hcoycnhcoycnhcoy_orig.png</image:loc>
+      <image:title>LinkedIn client feedback</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yimaphilemon.github.io/gallery/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/result-1627109594103_orig.jpg</image:loc>
+      <image:title>Render result preview</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture26_orig.jpg</image:loc>
+      <image:title>Game state screenshot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture20_orig.jpg</image:loc>
+      <image:title>Level architecture details</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0607_orig.jpg</image:loc>
+      <image:title>Editor tools view</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture380_orig.jpg</image:loc>
+      <image:title>Map blueprint sketch</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture10_orig.jpg</image:loc>
+      <image:title>Asset placement editor</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture003.jpg</image:loc>
+      <image:title>2D Level Layout</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture001.jpg</image:loc>
+      <image:title>Desert Level Environment</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture004.jpg</image:loc>
+      <image:title>Sci-fi Corridor</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture005.jpg</image:loc>
+      <image:title>Sci-fi Hangar</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0505.jpg</image:loc>
+      <image:title>Urban Editor Map</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0583.jpg</image:loc>
+      <image:title>City Street Layout</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture117.jpg</image:loc>
+      <image:title>Forest Path</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/capture120.jpg</image:loc>
+      <image:title>Night Level</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0984.jpg</image:loc>
+      <image:title>Asset render preview 1</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0997.jpg</image:loc>
+      <image:title>Asset render preview 2</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-1035.jpg</image:loc>
+      <image:title>Asset render preview 3</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0386.jpg</image:loc>
+      <image:title>Asset render preview 4</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0388.jpg</image:loc>
+      <image:title>Asset render preview 5</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0403.jpg</image:loc>
+      <image:title>Asset render preview 6</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-004-0406.jpg</image:loc>
+      <image:title>Asset render preview 7</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-001-0234.jpg</image:loc>
+      <image:title>Asset render preview 8</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-001-0254.jpg</image:loc>
+      <image:title>Asset render preview 9</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-001-0008.jpg</image:loc>
+      <image:title>Asset render preview 10</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-001-0032.jpg</image:loc>
+      <image:title>Asset render preview 11</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-001-2375.jpg</image:loc>
+      <image:title>Asset render preview 12</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-001-2401_orig.jpg</image:loc>
+      <image:title>Full scale blueprint concept design</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://yimaphilemon.github.io/contact/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yimaphilemon.github.io/resources/</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
