@@ -179,12 +179,15 @@ header.scrolled {
 .nav-item a:hover::after,
 .nav-item.active a::after { width: 100%; }
 
-.nav-cta {
+/* .nav-item a (class+element) outranks a plain .nav-cta class selector, so
+   its padding: 0.5rem 0 was winning and squashing this button flat.
+   Scoping to .nav-item a.nav-cta guarantees this rule wins instead. */
+.nav-item a.nav-cta {
   display: inline-flex;
   align-items: center;
   background: var(--gradient-neon);
   color: var(--bg-primary) !important;
-  padding: 0.7rem 1.6rem;
+  padding: 0.85rem 2rem;
   line-height: 1;
   border-radius: 30px;
   font-weight: 700 !important;
@@ -688,7 +691,6 @@ footer a:hover { color: var(--accent-gold); }
   .nav-links.active { left: 0; }
 
   .nav-item a { font-size: 1.1rem; }
-  .nav-cta { padding: 0.875rem 2rem; }
 }
 
 @media (max-width: 1024px) {
