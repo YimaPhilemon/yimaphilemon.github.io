@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSlideshow();
   initLightbox();
   initContactForm();
+  initWhatsAppContactButton();
   initLocalClock();
   initGithubStats();
   initGithubPinnedRepos();
@@ -357,6 +358,43 @@ function initContactForm() {
         console.error('Contact form submission failed:', err);
         showError();
       });
+  });
+}
+
+/**
+ * WhatsApp Contact Shortcut
+ * Lets a visitor send the same name/email/message straight to WhatsApp
+ * instead of (or alongside) the Google Apps Script submission above.
+ */
+const CONTACT_WHATSAPP_NUMBER = '2349120925909';
+
+function initWhatsAppContactButton() {
+  const btn = document.getElementById('whatsapp-send-btn');
+  const form = document.querySelector('.contact-form');
+  if (!btn || !form) return;
+
+  btn.addEventListener('click', () => {
+    const nameInput = form.querySelector('input[type="text"]');
+    const emailInput = form.querySelector('input[type="email"]');
+    const messageInput = form.querySelector('textarea');
+
+    if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput.value.trim())) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const lines = [
+      `Hi Yima, I'm ${nameInput.value.trim()} (${emailInput.value.trim()}).`,
+      messageInput.value.trim(),
+    ];
+    const message = encodeURIComponent(lines.join('\n\n'));
+    window.open(`https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${message}`, '_blank');
   });
 }
 
