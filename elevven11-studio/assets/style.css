@@ -448,6 +448,10 @@ header.scrolled {
   gap: 1.5rem;
 }
 
+/* Separate class (not combined with .steps-list) so its own column count
+   doesn't out-specificity the responsive .steps-list media queries below. */
+.steps-list-4 { grid-template-columns: repeat(4, 1fr); }
+
 .step-item { text-align: center; }
 
 .step-number {
@@ -691,6 +695,7 @@ footer a:hover { color: var(--accent-gold); }
   .hero-title { font-size: 2.85rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .steps-list { grid-template-columns: repeat(3, 1fr); }
+  .steps-list-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -701,7 +706,11 @@ footer a:hover { color: var(--accent-gold); }
   .hero-tagline { font-size: 1.05rem; }
 
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  .steps-list { grid-template-columns: repeat(2, 1fr); }
+  .steps-list, .steps-list-4 { grid-template-columns: repeat(2, 1fr); }
   .pricing-card.featured { transform: none; }
   .btn-group { flex-direction: column; align-items: stretch; }
+}
+
+@media (max-width: 480px) {
+  .steps-list, .steps-list-4 { grid-template-columns: 1fr; }
 }
