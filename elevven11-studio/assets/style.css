@@ -1,6 +1,6 @@
 /*
    Elevven11 Studio - Marketing Site Stylesheet
-   Standalone design system (dark, gold/amber accent). Not shared with the
+   Standalone design system (dark, light-green accent). Not shared with the
    main portfolio stylesheet on purpose - this is a separate brand.
 */
 
@@ -21,12 +21,20 @@
   --accent-purple: #2dd4bf;
   --accent-green: #3fb950;
 
+  /* True gold - used sparingly for "premium" and "money/earnings" moments
+     (the Most Popular badge, referral commission figures) so it reads as a
+     deliberate highlight against the green brand, not a second primary. */
+  --accent-champagne: #f0c866;
+  --accent-champagne-dark: #c99a2e;
+  --gradient-champagne: linear-gradient(135deg, var(--accent-champagne) 0%, var(--accent-champagne-dark) 100%);
+
   /* Gradients */
   --gradient-neon: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
   --gradient-card: linear-gradient(145deg, rgba(19, 16, 25, 0.8) 0%, rgba(28, 24, 38, 0.5) 100%);
 
   /* Shadows & Glows */
   --glow-gold: 0 0 15px rgba(134, 239, 172, 0.35);
+  --glow-champagne: 0 0 15px rgba(240, 200, 102, 0.35);
   --shadow-main: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 
   /* Borders */
@@ -382,8 +390,8 @@ header.scrolled {
 .pricing-badge {
   display: inline-block;
   align-self: center;
-  background: var(--gradient-neon);
-  color: var(--bg-primary);
+  background: var(--gradient-champagne);
+  color: #1a1206;
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -441,7 +449,9 @@ header.scrolled {
   color: var(--text-muted);
 }
 
-.pricing-commission strong { color: var(--accent-gold); }
+.pricing-commission strong { color: var(--accent-champagne); }
+
+.commission-figure { color: var(--accent-champagne); }
 
 /* Steps */
 .steps-list {
@@ -582,6 +592,18 @@ header.scrolled {
 .form-textarea { min-height: 130px; resize: vertical; }
 
 .form-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+.form-success-msg {
+  display: none;
+  background: rgba(63, 185, 80, 0.1);
+  border: 1px solid rgba(63, 185, 80, 0.25);
+  color: var(--accent-green);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
 
 .referral-banner {
   display: none;

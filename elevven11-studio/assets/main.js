@@ -84,13 +84,15 @@ function initNavbar() {
   const navLinks = document.querySelector('.nav-links');
   const navItems = document.querySelectorAll('.nav-item a');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
 
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', (e) => {
@@ -214,5 +216,12 @@ function initGetStartedForm() {
     const message = encodeURIComponent(lines.join('\n'));
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
     window.open(url, '_blank');
+
+    const successMsg = document.querySelector('.form-success-msg');
+    if (successMsg) {
+      successMsg.textContent = `Thanks, ${get('name')}! WhatsApp should have opened in a new tab with your details filled in — just hit send there to reach us.`;
+      successMsg.style.display = 'block';
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   });
 }
