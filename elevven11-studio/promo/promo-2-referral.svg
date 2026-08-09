@@ -8,6 +8,10 @@
       <stop offset="0%" stop-color="#86efac" />
       <stop offset="100%" stop-color="#22c55e" />
     </linearGradient>
+    <linearGradient id="champagne" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0c866" />
+      <stop offset="100%" stop-color="#c99a2e" />
+    </linearGradient>
     <radialGradient id="glow1" cx="80%" cy="10%" r="45%">
       <stop offset="0%" stop-color="#86efac" stop-opacity="0.16" />
       <stop offset="100%" stop-color="#86efac" stop-opacity="0" />
@@ -22,8 +26,8 @@
   <text x="540" y="310" text-anchor="middle" font-size="60" font-weight="800" fill="#f7f3ec">Know someone who</text>
   <text x="540" y="380" text-anchor="middle" font-size="60" font-weight="800" fill="#f7f3ec">needs a website?</text>
 
-  <!-- Big earn number -->
-  <text x="540" y="590" text-anchor="middle" font-size="150" font-weight="800" fill="url(#neon)">₦10,000</text>
+  <!-- Big earn number - gold, since this is money the agent earns, not the site's core green brand action -->
+  <text x="540" y="590" text-anchor="middle" font-size="150" font-weight="800" fill="url(#champagne)">₦10,000</text>
   <text x="540" y="650" text-anchor="middle" font-size="32" fill="#a79f95">commission per Starter website you refer</text>
 
   <!-- Steps -->
