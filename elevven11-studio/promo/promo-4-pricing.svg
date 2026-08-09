@@ -41,7 +41,7 @@
   <!-- Plus card (featured) -->
   <rect x="400" y="280" width="280" height="620" rx="16" fill="url(#cardGrad)" stroke="#86efac" stroke-opacity="0.5" stroke-width="2" />
   <rect x="470" y="310" width="140" height="40" rx="20" fill="url(#champagne)" />
-  <text x="540" y="337" text-anchor="middle" font-size="18" font-weight="800" fill="#1a1206">MOST POPULAR</text>
+  <text x="540" y="337" text-anchor="middle" font-size="16" font-weight="800" fill="#1a1206">MOST POPULAR</text>
   <text x="540" y="410" text-anchor="middle" font-size="30" font-weight="700" fill="#f7f3ec">Plus</text>
   <text x="540" y="475" text-anchor="middle" font-size="38" font-weight="800" fill="url(#neon)">₦80,000</text>
   <text x="540" y="515" text-anchor="middle" font-size="20" fill="#7a7268">1 month free updates</text>
