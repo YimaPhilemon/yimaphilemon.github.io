@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found - Yima Philemon</title>
+  <link rel="icon" type="image/svg+xml" href="/files/favicon.svg" />
+  <link rel="stylesheet" type="text/css" href="/files/main_style.css" />
+  <script>
+    // Elevven11 Studio moved to its own domain. Anything under the old
+    // /elevven11-studio/ path (including sub-pages we no longer host,
+    // e.g. /elevven11-studio/pricing/) redirects there, preserving the
+    // rest of the path, query string, and hash.
+    (function () {
+      var prefix = '/elevven11-studio/';
+      var path = window.location.pathname;
+      if (path.indexOf(prefix) === 0) {
+        var rest = path.slice(prefix.length);
+        var target = 'https://elevven11studio.github.io/' + rest + window.location.search + window.location.hash;
+        window.location.replace(target);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="/" class="logo">YIMA PHILEMON</a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/gallery/">Gallery</a></li>
+        <li class="nav-item"><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" style="min-height: 100vh;">
+    <div class="hero-content container">
+      <h1 class="hero-title" style="font-size: 3rem;">Page Not <strong>Found</strong></h1>
+      <p class="hero-tagline" style="font-size: 1.15rem;">
+        Looking for Elevven11 Studio? It's moved to
+        <a href="https://elevven11studio.github.io/" style="color: var(--accent-cyan);">elevven11studio.github.io</a>.
+      </p>
+      <div class="btn-group">
+        <a href="/" class="btn btn-primary">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="/files/portfolio.js"></script>
+</body>
+</html>
