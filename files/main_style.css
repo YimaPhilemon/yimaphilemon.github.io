@@ -3,7 +3,9 @@
    Modern design system with a responsive dark layout, glassmorphism, and neon gradients.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+/* Fonts are loaded via <link> tags in each page <head> rather than @import
+   here, so the browser can fetch them in parallel with this stylesheet
+   instead of waiting for it to parse first. */
 
 :root {
   /* Color Palette */
@@ -1114,7 +1116,13 @@ textarea.form-input {
   background: rgba(171, 123, 235, 0.15);
   border: 1px solid rgba(171, 123, 235, 0.35);
   color: var(--accent-purple);
-  margin-bottom: 0.6rem;
+  /* Sits inline after the repo name inside the h4, so it needs side spacing
+     rather than the stacked margin it used when it sat above the name. */
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {

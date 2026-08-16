@@ -131,6 +131,18 @@ function initSlideshow() {
 
   const dots = dotsContainer.querySelectorAll('.dot');
 
+  // Slide images are lazy so they don't block first paint, but a lazy image
+  // sitting outside the clipped track never enters the viewport on its own and
+  // would pop in blank mid-transition. Flipping it to eager starts the fetch,
+  // so we warm the current slide plus its immediate neighbours ahead of time.
+  function preloadAround(index) {
+    for (let offset = -1; offset <= 1; offset++) {
+      const slide = slides[(index + offset + totalSlides) % totalSlides];
+      const img = slide && slide.querySelector('img[loading="lazy"]');
+      if (img) img.loading = 'eager';
+    }
+  }
+
   function updateSlideshow() {
     container.style.transform = `translateX(-${currentSlide * 100}%)`;
     dots.forEach((dot, index) => {
@@ -149,8 +161,11 @@ function initSlideshow() {
     } else if (currentSlide >= totalSlides) {
       currentSlide = 0;
     }
+    preloadAround(currentSlide);
     updateSlideshow();
   }
+
+  preloadAround(0);
 
   function nextSlide() {
     goToSlide(currentSlide + 1);
@@ -481,8 +496,7 @@ function renderRepoCard(owner, repo, tag, data) {
   if (data) {
     return `
       <a class="glass-card gh-repo-card${isUtility ? ' gh-repo-utility' : ''}" href="${data.html_url}" target="_blank">
-        ${badge}
-        <h4>${data.name}</h4>
+        <h4>${data.name}${badge}</h4>
         <p>${data.description || 'No description provided.'}</p>
         <div class="gh-repo-meta">
           <span>⭐ ${data.stargazers_count}</span>
@@ -495,8 +509,7 @@ function renderRepoCard(owner, repo, tag, data) {
 
   return `
     <a class="glass-card gh-repo-card gh-repo-degraded${isUtility ? ' gh-repo-utility' : ''}" href="https://github.com/${owner}/${repo}" target="_blank">
-      ${badge}
-      <h4>${repo}</h4>
+      <h4>${repo}${badge}</h4>
       <p class="gh-repo-degraded-note">Live details unavailable right now — view on GitHub →</p>
     </a>
   `;

@@ -7,11 +7,23 @@
 	<title>Yima Philemon - Unity Developer & Software Engineer</title>
 
 	<meta name="description"
-		content="Yima Philemon Portfolio - Unity Developer, Level Designer, C# and Dart Programmer, Flutter Developer" />
-	<meta name="keywords"
-		content="Unity Developer, Unity, Game Development, Unity Games, Indie Game Developer, Unity 3D, Game Design, Virtual Reality, Augmented Reality, Unity Projects, Unity Programming, C# Developer, Unity Animator, Unity Engine, Unity Scripting, Game, Yima Philemon, Flutter, Dart, Android Game" />
+		content="Unity developer and Flutter engineer building mobile games, VR/AR experiences, and cross-platform apps. Explore published Play Store titles, Unity prototypes, and open-source Flutter packages." />
 	<meta name="google-site-verification" content="1t5543jvOSEDM1yPPISqin7zWmaaZvg5aWjVOoiqsRU" />
 	<link rel="canonical" href="https://yimaphilemon.github.io/" />
+
+	<!-- Hero background is the LCP element; preload it since inline CSS hides it from the preload scanner -->
+	<link rel="preload" as="image" href="/uploads/1/3/8/5/138506153/background-images/hero.webp" type="image/webp" />
+
+	<!-- Preconnect to third-party origins used below the fold -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="preconnect" href="https://d3jwyy9rhyhl55.cloudfront.net" />
+	<link rel="dns-prefetch" href="https://img.shields.io" />
+	<link rel="dns-prefetch" href="https://www.youtube.com" />
+
+	<!-- Fonts -->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/svg+xml" href="/files/favicon.svg" />
@@ -27,35 +39,149 @@
 		content="Unity Developer, Level Designer, C# and Dart Programmer, Flutter Developer. Explore Unity game prototypes, published mobile apps, and Flutter packages." />
 	<meta property="og:url" content="https://yimaphilemon.github.io/" />
 	<meta property="og:image"
-		content="https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-008-0344_orig.jpg" />
+		content="https://yimaphilemon.github.io/files/og/home.jpg" />
+	<meta property="og:image:alt" content="Yima Philemon, Unity developer and Flutter engineer" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:locale" content="en_US" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@Yima_Philemon" />
 	<meta name="twitter:title" content="Yima Philemon - Unity Developer & Software Engineer" />
 	<meta name="twitter:description"
 		content="Unity Developer, Level Designer, C# and Dart Programmer, Flutter Developer." />
 	<meta name="twitter:image"
-		content="https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-008-0344_orig.jpg" />
+		content="https://yimaphilemon.github.io/files/og/home.jpg" />
+  <meta name="twitter:image:alt" content="Yima Philemon, Unity developer and Flutter engineer" />
 
 	<!-- Modern Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="/files/main_style.css" />
 
 	<!-- Structured Data -->
+	<!-- NOTE: the VideoObject entries below omit "uploadDate" because the real
+	     publish dates are not recorded anywhere in this repo. Google requires
+	     uploadDate for video rich results, so add it (YYYY-MM-DD, from each
+	     video's page on YouTube) to make these eligible. -->
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "Person",
-		"name": "Yima Philemon",
-		"url": "https://yimaphilemon.github.io/",
-		"image": "https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-008-0344_orig.jpg",
-		"jobTitle": "Unity Developer & Software Engineer",
-		"description": "Unity Developer, Level Designer, C# and Dart Programmer, Flutter Developer.",
-		"sameAs": [
-			"https://www.linkedin.com/in/yima-philemon-b07b161b9",
-			"https://twitter.com/Yima_Philemon",
-			"http://facebook.com/philemon.unity.1/",
-			"https://www.behance.net/yimaphilemon",
-			"https://www.upwork.com/freelancers/~01360e1924a555adc2",
-			"https://youtube.com/@synergiworkvidoes"
+		"@graph": [
+			{
+				"@type": "Person",
+				"@id": "https://yimaphilemon.github.io/#person",
+				"name": "Yima Philemon",
+				"url": "https://yimaphilemon.github.io/",
+				"image": "https://yimaphilemon.github.io/uploads/1/3/8/5/138506153/image-008-0344_orig.jpg",
+				"jobTitle": "Unity Developer & Software Engineer",
+				"email": "mailto:yimaphilemon56@gmail.com",
+				"description": "Unity Developer, Level Designer, C# and Dart Programmer, Flutter Developer.",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Abuja",
+					"addressCountry": "NG"
+				},
+				"knowsAbout": [
+					"Unity",
+					"Game Development",
+					"Level Design",
+					"C#",
+					"Flutter",
+					"Dart",
+					"Virtual Reality",
+					"Augmented Reality",
+					"Photon Multiplayer",
+					"Mobile Game Development"
+				],
+				"sameAs": [
+					"https://www.linkedin.com/in/yima-philemon-b07b161b9",
+					"https://twitter.com/Yima_Philemon",
+					"https://github.com/YimaPhilemon",
+					"http://facebook.com/philemon.unity.1/",
+					"https://www.behance.net/yimaphilemon",
+					"https://www.upwork.com/freelancers/~01360e1924a555adc2",
+					"https://youtube.com/@synergiworkvidoes"
+				]
+			},
+			{
+				"@type": "WebSite",
+				"@id": "https://yimaphilemon.github.io/#website",
+				"url": "https://yimaphilemon.github.io/",
+				"name": "Yima Philemon Portfolio",
+				"inLanguage": "en",
+				"publisher": { "@id": "https://yimaphilemon.github.io/#person" }
+			},
+			{
+				"@type": "ProfilePage",
+				"@id": "https://yimaphilemon.github.io/#webpage",
+				"url": "https://yimaphilemon.github.io/",
+				"name": "Yima Philemon - Unity Developer & Software Engineer",
+				"isPartOf": { "@id": "https://yimaphilemon.github.io/#website" },
+				"about": { "@id": "https://yimaphilemon.github.io/#person" },
+				"mainEntity": { "@id": "https://yimaphilemon.github.io/#person" }
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Flutter Realtime Messaging System",
+				"description": "Demonstration of responsive UI, smooth chat paginator, bubble layout rendering, and optimized state handling.",
+				"thumbnailUrl": "https://i.ytimg.com/vi/HApSfpyNP0A/hqdefault.jpg",
+				"embedUrl": "https://www.youtube.com/embed/HApSfpyNP0A",
+				"contentUrl": "https://www.youtube.com/watch?v=HApSfpyNP0A",
+				"creator": { "@id": "https://yimaphilemon.github.io/#person" }
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Unity Prototype Gameplay Reel",
+				"description": "Gameplay reel covering the core game loop, physics response, and enemy AI behaviour across Unity prototypes.",
+				"thumbnailUrl": "https://i.ytimg.com/vi/QjfdM3kzBBM/hqdefault.jpg",
+				"embedUrl": "https://www.youtube.com/embed/QjfdM3kzBBM",
+				"contentUrl": "https://www.youtube.com/watch?v=QjfdM3kzBBM",
+				"creator": { "@id": "https://yimaphilemon.github.io/#person" }
+			},
+			{
+				"@type": "VideoObject",
+				"name": "2D Level Editor Tools",
+				"description": "Custom Unity editor tooling with tile brushes and fast map loading for 2D level design.",
+				"thumbnailUrl": "https://i.ytimg.com/vi/Din8vM7ruUY/hqdefault.jpg",
+				"embedUrl": "https://www.youtube.com/embed/Din8vM7ruUY",
+				"contentUrl": "https://www.youtube.com/watch?v=Din8vM7ruUY",
+				"creator": { "@id": "https://yimaphilemon.github.io/#person" }
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Photon Multiplayer Sync Demo",
+				"description": "Photon integration showing sync variables, network transforms, and match state management.",
+				"thumbnailUrl": "https://i.ytimg.com/vi/VR82QCjdO1E/hqdefault.jpg",
+				"embedUrl": "https://www.youtube.com/embed/VR82QCjdO1E",
+				"contentUrl": "https://www.youtube.com/watch?v=VR82QCjdO1E",
+				"creator": { "@id": "https://yimaphilemon.github.io/#person" }
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Physics Mechanics System",
+				"description": "Unity physics systems covering collision logic, forces, and interactive object behaviour.",
+				"thumbnailUrl": "https://i.ytimg.com/vi/J4PDMow5-Zc/hqdefault.jpg",
+				"embedUrl": "https://www.youtube.com/embed/J4PDMow5-Zc",
+				"contentUrl": "https://www.youtube.com/watch?v=J4PDMow5-Zc",
+				"creator": { "@id": "https://yimaphilemon.github.io/#person" }
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Custom Animations & Tweening",
+				"description": "Smooth UI transitions, camera shakes, and custom character feedback built with procedural tweening.",
+				"thumbnailUrl": "https://i.ytimg.com/vi/cZg0zNelmYQ/hqdefault.jpg",
+				"embedUrl": "https://www.youtube.com/embed/cZg0zNelmYQ",
+				"contentUrl": "https://www.youtube.com/watch?v=cZg0zNelmYQ",
+				"creator": { "@id": "https://yimaphilemon.github.io/#person" }
+			},
+			{
+				"@type": "VideoObject",
+				"name": "Pathfinding AI & Obstacle Avoidance",
+				"description": "Unity NavMesh logic showing crowds navigating dynamic levels and avoiding obstacles efficiently.",
+				"thumbnailUrl": "https://i.ytimg.com/vi/Uu7JKwTfWPA/hqdefault.jpg",
+				"embedUrl": "https://www.youtube.com/embed/Uu7JKwTfWPA",
+				"contentUrl": "https://www.youtube.com/watch?v=Uu7JKwTfWPA",
+				"creator": { "@id": "https://yimaphilemon.github.io/#person" }
+			}
 		]
 	}
 	</script>
@@ -82,7 +208,7 @@
 
 	<!-- Hero Section -->
 	<section class="hero"
-		style="background-image: url('/uploads/1/3/8/5/138506153/background-images/background-images/449932261.png');">
+		style="background-image: url('/uploads/1/3/8/5/138506153/background-images/hero.webp');">
 		<div class="hero-content container">
 			<div class="hero-subtitle">Interactive Game & Mobile Experiences</div>
 			<h1 class="hero-title">Hi, I'm <strong>Yima Philemon</strong></h1>
@@ -182,26 +308,26 @@
 			<div class="glass-card" style="padding: 1.5rem;">
 				<div class="role-img-wrap" style="aspect-ratio: 16/9; margin-bottom: 1.5rem;">
 					<a href="/uploads/1/3/8/5/138506153/image-008-0344_orig.jpg">
-						<img src="/uploads/1/3/8/5/138506153/image-008-0344_orig.jpg" alt="Featured Role Banner" />
+						<img src="/uploads/1/3/8/5/138506153/image-008-0344_orig.jpg" alt="Featured Role Banner" loading="lazy" decoding="async" />
 					</a>
 				</div>
 
 				<div class="role-img-wrap" style="aspect-ratio: 16/9; margin-top: 1.5rem;">
 					<a href="/uploads/1/3/8/5/138506153/capture003_orig.jpg">
-						<img src="/uploads/1/3/8/5/138506153/capture003.jpg" alt="Featured gameplay screenshot" />
+						<img src="/uploads/1/3/8/5/138506153/capture003.jpg" alt="Featured gameplay screenshot" loading="lazy" decoding="async" />
 					</a>
 				</div>
 				<div class="role-img-wrap" style="aspect-ratio: 16/9;  margin-top: 1.5rem;">
 					<a href="/uploads/1/3/8/5/138506153/image-025-15009_orig.png">
 						<img src="/uploads/1/3/8/5/138506153/image-025-15009_orig.png"
-							alt="Featured interface layout" />
+							alt="Featured interface layout" loading="lazy" decoding="async" />
 					</a>
 				</div>
 
 				<div class="role-img-wrap" style="aspect-ratio: 16/9; margin-top: 1.5rem;">
 					<a href="/uploads/1/3/8/5/138506153/capture0000006_orig.jpg">
 						<img src="/uploads/1/3/8/5/138506153/capture0000006_orig.jpg"
-							alt="Featured landscape level design" />
+							alt="Featured landscape level design" loading="lazy" decoding="async" />
 					</a>
 				</div>
 			</div>
@@ -235,7 +361,7 @@
 					<div class="role-img-wrap"
 						style="max-width: 250px; margin: 0 auto 1rem; border-radius: var(--border-radius);">
 						<a href="/uploads/1/3/8/5/138506153/wa-link-kw6gjo_orig.png">
-							<img src="/uploads/1/3/8/5/138506153/wa-link-kw6gjo_orig.png" alt="WhatsApp Chat QR" />
+							<img src="/uploads/1/3/8/5/138506153/wa-link-kw6gjo_orig.png" alt="WhatsApp Chat QR" loading="lazy" decoding="async" />
 						</a>
 					</div>
 					<p style="font-weight: 700; color: var(--text-secondary);">SCAN ME (WHATSAPP CHAT)</p>
@@ -320,7 +446,7 @@
 						<div
 							style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: var(--border-subtle);">
 							<img src="/uploads/1/3/8/5/138506153/screenshot-2024-02-24-161704_orig.png" alt="T.D.A. H."
-								style="width:100%; height:100%; object-fit:cover;" />
+								style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async" />
 						</div>
 						<div class="rec-author-info">
 							<h4>T.D.A. H.</h4>
@@ -341,7 +467,7 @@
 						<div
 							style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: var(--border-subtle);">
 							<img src="/uploads/1/3/8/5/138506153/screenshot-2023-09-16-103239_orig.png"
-								alt="Julian Rocholl" style="width:100%; height:100%; object-fit:cover;" />
+								alt="Julian Rocholl" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async" />
 						</div>
 						<div class="rec-author-info">
 							<h4>Julian Rocholl</h4>
@@ -360,7 +486,7 @@
 						<div
 							style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: var(--border-subtle);">
 							<img src="/uploads/1/3/8/5/138506153/gemini-generated-image-hcoycnhcoycnhcoy_orig.png"
-								alt="LinkedIn client feedback" style="width:100%; height:100%; object-fit:cover;" />
+								alt="LinkedIn client feedback" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async" />
 						</div>
 						<div class="rec-author-info">
 							<h4>Tile Editor Client</h4>
@@ -392,42 +518,42 @@
 				<a href="https://play.google.com/store/apps/details?id=co.vearth.helf&hl=en_US" target="_blank"
 					class="glass-card" style="text-align: center; padding: 1.5rem;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/fEYsYrA0yKciPqa5/mw1920_unnamed.png"
-						alt="Helf App Icon" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" />
+						alt="Helf App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
 					<h4 style="color: var(--text-primary);">Helf</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=co.vearth.helfbuddy&hl=en_US" target="_blank"
 					class="glass-card" style="text-align: center; padding: 1.5rem;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/OsbTNAIqh5Yscww5/mw1920_unnamed.png"
-						alt="Helf Buddy App Icon" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" />
+						alt="Helf Buddy App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
 					<h4 style="color: var(--text-primary);">Helf Buddy</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=co.vearth.vearth&hl=en_US" target="_blank"
 					class="glass-card" style="text-align: center; padding: 1.5rem;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/TkbZ1sDaM4Y5IE0q/mw1920_unnamed.png"
-						alt="Vearth App Icon" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" />
+						alt="Vearth App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
 					<h4 style="color: var(--text-primary);">Vearth</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=com.morphbots.ballermatics&hl=en_US"
 					target="_blank" class="glass-card" style="text-align: center; padding: 1.5rem;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/cPgvYjgx1547FZSl/mw1920_unnamed.png"
-						alt="Ballermatics App Icon" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" />
+						alt="Ballermatics App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
 					<h4 style="color: var(--text-primary);">Ballermatics</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=com.MORPHBOTS.KDooKuckoo&hl=en_US"
 					target="_blank" class="glass-card" style="text-align: center; padding: 1.5rem;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/YXxhzqSgOCD9nUeL/mw1920_unnamed.png"
-						alt="KDooKuckoo App Icon" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" />
+						alt="KDooKuckoo App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
 					<h4 style="color: var(--text-primary);">KDooKuckoo</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=co.morphbots.legends" target="_blank"
 					class="glass-card" style="text-align: center; padding: 1.5rem;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/nEDCWWZnl3pas0Uw/mw1920_unnamed.png"
-						alt="Legends App Icon" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" />
+						alt="Legends App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
 					<h4 style="color: var(--text-primary);">Legends</h4>
 				</a>
 			</div>
@@ -439,7 +565,7 @@
 				<a href="https://pub.dev/packages/easy_bubble_container" target="_blank" class="glass-card"
 					style="display: flex; gap: 1.5rem; align-items: center;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/CnbwpwLkqiQ0RdwL/mw1920_pub-dev-icon-cover-image.png"
-						alt="easy_bubble_container icon" style="width: 70px; border-radius: 8px;" />
+						alt="easy_bubble_container icon" width="70" height="70" style="width: 70px; border-radius: 8px;" loading="lazy" decoding="async" />
 					<div>
 						<h4 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.25rem;">
 							easy_bubble_container</h4>
@@ -451,7 +577,7 @@
 				<a href="https://pub.dev/packages/flutter_chat_paginator" target="_blank" class="glass-card"
 					style="display: flex; gap: 1.5rem; align-items: center;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/CnbwpwLkqiQ0RdwL/mw1920_pub-dev-icon-cover-image.png"
-						alt="flutter_chat_paginator icon" style="width: 70px; border-radius: 8px;" />
+						alt="flutter_chat_paginator icon" width="70" height="70" style="width: 70px; border-radius: 8px;" loading="lazy" decoding="async" />
 					<div>
 						<h4 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.25rem;">
 							flutter_chat_paginator</h4>
@@ -469,7 +595,7 @@
 				Flutter App Showcase</h4>
 			<div class="video-card container" style="max-width: 700px; margin-bottom: 4rem;">
 				<div class="video-container">
-					<iframe src="https://www.youtube.com/embed/HApSfpyNP0A?wmode=opaque" allowfullscreen></iframe>
+					<iframe src="https://www.youtube.com/embed/HApSfpyNP0A?wmode=opaque" allowfullscreen title="Flutter Realtime Messaging System" loading="lazy"></iframe>
 				</div>
 				<div class="video-info">
 					<h3>Flutter Realtime Messaging System</h3>
@@ -483,7 +609,7 @@
 			<div class="video-grid">
 				<div class="video-card">
 					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/QjfdM3kzBBM?wmode=opaque" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/QjfdM3kzBBM?wmode=opaque" allowfullscreen title="Unity Prototype Gameplay Reel" loading="lazy"></iframe>
 					</div>
 					<div class="video-info">
 						<h3>Unity Prototype Gameplay Reel</h3>
@@ -492,7 +618,7 @@
 
 				<div class="video-card">
 					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/Din8vM7ruUY?wmode=opaque" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/Din8vM7ruUY?wmode=opaque" allowfullscreen title="2D Level Editor Tools" loading="lazy"></iframe>
 					</div>
 					<div class="video-info">
 						<h3>2D Level Editor Tools</h3>
@@ -501,7 +627,7 @@
 
 				<div class="video-card">
 					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/VR82QCjdO1E?wmode=opaque" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/VR82QCjdO1E?wmode=opaque" allowfullscreen title="Photon Multiplayer Sync demo" loading="lazy"></iframe>
 					</div>
 					<div class="video-info">
 						<h3>Photon Multiplayer Sync demo</h3>
@@ -510,7 +636,7 @@
 
 				<div class="video-card">
 					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/J4PDMow5-Zc?wmode=opaque" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/J4PDMow5-Zc?wmode=opaque" allowfullscreen title="Physic Mechanics System" loading="lazy"></iframe>
 					</div>
 					<div class="video-info">
 						<h3>Physic Mechanics System</h3>
@@ -519,7 +645,7 @@
 
 				<div class="video-card">
 					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/cZg0zNelmYQ?wmode=opaque" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/cZg0zNelmYQ?wmode=opaque" allowfullscreen title="Custom Animations &amp; Tweening" loading="lazy"></iframe>
 					</div>
 					<div class="video-info">
 						<h3>Custom Animations & Tweening</h3>
@@ -528,7 +654,7 @@
 
 				<div class="video-card">
 					<div class="video-container">
-						<iframe src="https://www.youtube.com/embed/Uu7JKwTfWPA?wmode=opaque" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/Uu7JKwTfWPA?wmode=opaque" allowfullscreen title="Pathfinding AI &amp; Obstacle avoidance" loading="lazy"></iframe>
 					</div>
 					<div class="video-info">
 						<h3>Pathfinding AI & Obstacle avoidance</h3>
@@ -546,7 +672,7 @@
 
 	<!-- LinkedIn Experience Redirection Section -->
 	<section class="linkedin-redirect-section"
-		style="background-image: url('/uploads/1/3/8/5/138506153/background-images/background-images/837026974.jpg'); background-size: cover; background-position: center; position: relative;">
+		style="background-image: url('/uploads/1/3/8/5/138506153/background-images/experience-band.webp'); background-size: cover; background-position: center; position: relative;">
 		<div style="content: ''; position: absolute; inset: 0; background: rgba(9, 13, 22, 0.85); z-index: 1;"></div>
 		<div class="container" style="position: relative; z-index: 2; text-align: center; padding: 4rem 0;">
 			<h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Professional Work Experience</h2>
