@@ -9,6 +9,17 @@
 	<meta name="description"
 		content="Unity developer and Flutter engineer building mobile games, VR/AR experiences, and cross-platform apps. Explore published Play Store titles, Unity prototypes, and open-source Flutter packages." />
 	<meta name="google-site-verification" content="1t5543jvOSEDM1yPPISqin7zWmaaZvg5aWjVOoiqsRU" />
+	<!-- Applies the stored theme before first paint, so the page can never flash
+	     the wrong one. Kept inline and tiny for that reason. -->
+	<script>
+		(function () {
+			try {
+				var t = localStorage.getItem('yp_theme');
+				if (t) document.documentElement.setAttribute('data-theme', t);
+			} catch (e) { /* private mode: fall through to the system preference */ }
+		})();
+	</script>
+
 	<link rel="canonical" href="https://yimaphilemon.github.io/" />
 
 	<!-- Hero background is the LCP element; preload it since inline CSS hides it from the preload scanner -->
@@ -44,6 +55,14 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
+	<!-- Square alternate: share dialogs that let you pick between linked
+	     images (Facebook, LinkedIn) can offer this instead of a landscape
+	     crop for mobile-style posts. -->
+	<meta property="og:image" content="https://yimaphilemon.github.io/files/og/home-square.jpg" />
+	<meta property="og:image:width" content="1080" />
+	<meta property="og:image:height" content="1080" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:alt" content="Yima Philemon, Unity developer and Flutter engineer" />
 	<meta property="og:locale" content="en_US" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@Yima_Philemon" />
@@ -198,6 +217,11 @@
 				<li class="nav-item"><a href="/gallery/">Gallery</a></li>
 				<li class="nav-item"><a href="/contact/">Contact</a></li>
 			</ul>
+			<button class="theme-toggle" type="button" aria-label="Switch colour theme">
+				<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+				<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z"/></svg>
+			</button>
+
 			<div class="hamburger">
 				<span></span>
 				<span></span>

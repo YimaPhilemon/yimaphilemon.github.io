@@ -19,6 +19,8 @@
   --accent-blue: #2f81f7;
   --accent-green: #3fb950;
   --accent-purple: #ab7beb;
+  /* Failure states only (a send that did not go through). */
+  --accent-danger: #f87171;
   
   /* Gradients */
   --gradient-neon: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
@@ -176,6 +178,11 @@ header.scrolled {
   display: flex;
   list-style: none;
   gap: 2.5rem;
+  /* Absorbs the free space so the links and the theme toggle group together on
+     the right, instead of space-between pushing the toggle to the far edge.
+     Inert on mobile, where .nav-links becomes position:fixed and leaves the
+     flow — the toggle takes the auto margin itself down there. */
+  margin-left: auto;
 }
 
 .nav-item a {
@@ -940,6 +947,37 @@ textarea.form-input {
   font-weight: 600;
 }
 
+/* Failure counterpart to .form-success-msg above. Shown in place of the old
+   alert() so a validation or delivery problem stays on the page next to the
+   form instead of in a modal the visitor has to dismiss. */
+.form-error-msg {
+  display: none;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: var(--accent-danger);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.form-success-note {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.form-hint {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+
 /* Developer Snapshot Section */
 .dev-snapshot-section .glass-card {
   margin-bottom: 2.5rem;
@@ -1284,5 +1322,506 @@ footer a:hover {
   
   .skills-list {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================================================================
+   Split send button (contact form)
+   One control, two actions: the main half submits to Web3Forms, the caret
+   opens the handoff routes. Replaces the old stacked "Send" / or / "WhatsApp"
+   pair, which gave two buttons equal weight when one is the default path.
+   =========================================================================== */
+.send-split {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.send-split-main {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 30px 0 0 30px;
+}
+
+.send-split-toggle {
+  flex: 0 0 auto;
+  width: 3.4rem;
+  padding: 1rem 0;
+  border-radius: 0 30px 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Hairline between the halves so the control reads as two actions rather
+     than one wide button. Drawn in the page ink, since both halves share the
+     same neon gradient underneath. */
+  box-shadow: inset 1px 0 0 rgba(9, 13, 22, 0.3), var(--glow-cyan);
+}
+
+/* .btn hover lifts the button, which would slide the two halves independently
+   and split the seam open. */
+.send-split-main:hover,
+.send-split-toggle:hover {
+  transform: none;
+}
+
+.send-split-toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast);
+}
+
+.send-split.open .send-split-toggle svg {
+  transform: rotate(180deg);
+}
+
+.send-split-menu {
+  position: absolute;
+  /* Opens UPWARD: the send button sits at the bottom of the form card, so a
+     downward menu would hang past the card's edge. There is always room
+     above — that's the form itself. */
+  bottom: calc(100% + 0.6rem);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.4rem;
+  background: rgba(15, 21, 36, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--border-subtle);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-main);
+  /* visibility rather than display:none: it can transition, and it still
+     takes the options out of the tab order while closed. */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  /* Closing holds visibility until the fade finishes. Opening (below) flips
+     it immediately with no delay, because a visibility:hidden element cannot
+     take focus and the caret focuses the first option straight away. */
+  transition: opacity var(--transition-fast), transform var(--transition-fast),
+    visibility 0s linear 0.2s;
+}
+
+.send-split.open .send-split-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity var(--transition-fast), transform var(--transition-fast),
+    visibility 0s linear 0s;
+}
+
+.send-split-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.send-split-option:hover {
+  background: rgba(0, 255, 251, 0.12);
+}
+
+.send-split-option:focus-visible {
+  outline: none;
+  background: rgba(0, 255, 251, 0.12);
+  box-shadow: inset 0 0 0 2px var(--accent-cyan);
+}
+
+.send-split-option svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* WhatsApp keeps its own brand green — it's a logo, not a themeable accent. */
+.send-split-option[data-send="whatsapp"] svg {
+  color: #25d366;
+}
+
+/* In flight. Pointer-events stay on so the cursor can show progress. */
+.send-split-main[aria-busy="true"] {
+  opacity: 0.75;
+  cursor: progress;
+}
+
+/* ===========================================================================
+   Floating contact speed-dial
+   Injected by portfolio.js on every page rather than pasted into each file, so
+   one change reaches the whole site. A "+" toggle expands into three routes
+   rather than linking straight to WhatsApp, since a visitor might prefer any
+   of them.
+   =========================================================================== */
+.fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.fab-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.fab-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  transition-delay: 0s;
+  opacity: 0;
+  transform: translateY(10px) scale(0.85);
+}
+
+.fab-action svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* WhatsApp and Messenger keep their own brand colours — they're logos, not
+   themeable accents. */
+.fab-action-whatsapp {
+  background: #25d366;
+  color: #06210f;
+}
+
+.fab-action-messenger {
+  background: #0084ff;
+  color: #ffffff;
+}
+
+.fab-action-contact {
+  background: var(--gradient-neon);
+  color: var(--bg-primary);
+}
+
+:root[data-theme="light"] .fab-action-contact {
+  color: #ffffff;
+}
+
+.fab.open .fab-menu { pointer-events: auto; }
+
+.fab.open .fab-action {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered so the pills cascade open rather than popping in together; the one
+   nearest the toggle leads, since it has the least distance to travel. */
+.fab.open .fab-action-contact { transition-delay: 0.03s; }
+.fab.open .fab-action-messenger { transition-delay: 0.08s; }
+.fab.open .fab-action-whatsapp { transition-delay: 0.13s; }
+
+.fab-toggle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gradient-neon);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--glow-cyan);
+  transition: var(--transition-normal);
+  animation: fab-in 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0.5s backwards;
+}
+
+:root[data-theme="light"] .fab-toggle {
+  color: #ffffff;
+}
+
+.fab-toggle svg {
+  width: 22px;
+  height: 22px;
+  transition: transform var(--transition-normal);
+}
+
+.fab.open .fab-toggle svg { transform: rotate(45deg); }
+
+.fab-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 251, 0.6);
+}
+
+.fab-toggle:active {
+  transform: scale(0.92);
+  transition: transform 0.1s ease;
+}
+
+@keyframes fab-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.7); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab-toggle { animation: none; }
+  .fab-action { transition: opacity var(--transition-fast); transform: none; }
+  .fab.open .fab-action { transform: none; }
+}
+
+/* Clears the mobile viewport's bottom edge and sits inboard a little. */
+@media (max-width: 768px) {
+  .fab {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .fab-toggle {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ===========================================================================
+   Thank-you page
+   =========================================================================== */
+.thank-you-tick {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 255, 251, 0.12);
+  border: 2px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+.thank-you-tick svg {
+  width: 34px;
+  height: 34px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .thank-you-tick {
+    animation: thank-you-pop 0.45s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  }
+}
+
+@keyframes thank-you-pop {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+/* ===========================================================================
+   Light theme
+   Two entry points, deliberately:
+     - :root[data-theme="light"] is an explicit choice, set by the toggle and
+       replayed from localStorage by the inline script in each <head>.
+     - the media query covers "no choice made yet", guarded by
+       :root:not([data-theme]) so an explicit dark choice always wins over a
+       light system preference.
+   The dark palette stays on bare :root, so nothing can flash the wrong way
+   on first paint.
+   =========================================================================== */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #e9edf3;
+  --bg-tertiary: #dbe2ec;
+  --text-primary: #0c1220;
+  --text-secondary: #4a5568;
+  --text-muted: #6b7688;
+
+  /* The neon cyan is tuned for a dark ground and is close to invisible on a
+     light one, so it goes considerably deeper here. */
+  --accent-cyan: #067d78;
+  --accent-blue: #1b5fc4;
+  --accent-green: #1a7f37;
+  --accent-purple: #6b3fb8;
+  --accent-danger: #b42318;
+
+  --gradient-neon: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+  --gradient-dark: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.5) 100%);
+
+  --glow-cyan: 0 0 15px rgba(6, 125, 120, 0.2);
+  --glow-blue: 0 0 15px rgba(27, 95, 196, 0.2);
+  --shadow-main: 0 8px 32px 0 rgba(12, 18, 32, 0.12);
+
+  --border-glow: 1px solid rgba(6, 125, 120, 0.25);
+  --border-subtle: 1px solid rgba(12, 18, 32, 0.12);
+}
+
+:root:not([data-theme]) {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+
+    --bg-primary: #f5f7fa;
+    --bg-secondary: #e9edf3;
+    --bg-tertiary: #dbe2ec;
+    --text-primary: #0c1220;
+    --text-secondary: #4a5568;
+    --text-muted: #6b7688;
+
+    --accent-cyan: #067d78;
+    --accent-blue: #1b5fc4;
+    --accent-green: #1a7f37;
+    --accent-purple: #6b3fb8;
+    --accent-danger: #b42318;
+
+    --gradient-neon: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+    --gradient-dark: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.5) 100%);
+
+    --glow-cyan: 0 0 15px rgba(6, 125, 120, 0.2);
+    --glow-blue: 0 0 15px rgba(27, 95, 196, 0.2);
+    --shadow-main: 0 8px 32px 0 rgba(12, 18, 32, 0.12);
+
+    --border-glow: 1px solid rgba(6, 125, 120, 0.25);
+    --border-subtle: 1px solid rgba(12, 18, 32, 0.12);
+  }
+}
+
+/* Surfaces that were hardcoded to the dark ground and so had nothing for the
+   light theme to override. */
+:root[data-theme="light"] header,
+:root:not([data-theme]) header {
+  background: var(--surface-veil, rgba(9, 13, 22, 0.7));
+}
+
+:root[data-theme="light"] {
+  --surface-veil: rgba(245, 247, 250, 0.75);
+  --surface-veil-solid: rgba(245, 247, 250, 0.97);
+}
+
+:root[data-theme="light"] header.scrolled {
+  background: rgba(245, 247, 250, 0.95);
+  box-shadow: 0 4px 20px rgba(12, 18, 32, 0.1);
+}
+
+/* Only below the mobile breakpoint, where .nav-links becomes a fixed panel and
+   actually needs a background. Applying this at every width painted a white
+   box behind the desktop nav links. */
+@media (max-width: 768px) {
+  :root[data-theme="light"] .nav-links {
+    background: rgba(245, 247, 250, 0.98);
+  }
+}
+
+:root[data-theme="light"] .send-split-menu {
+  background: var(--surface-veil-solid);
+}
+
+:root[data-theme="light"] .btn-primary {
+  color: #ffffff;
+}
+
+/* The hero scrim is a dark radial wash over the background photo. On a light
+   page the photo stays dark, so the scrim stays too — only the page around it
+   changes. Left alone deliberately. */
+
+/* Theme toggle button */
+.theme-toggle {
+  margin-left: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: var(--border-subtle);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Sun shows on dark (press it for light); moon shows on light. */
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .theme-toggle .icon-sun { display: none; }
+  :root:not([data-theme]) .theme-toggle .icon-moon { display: block; }
+}
+
+/* Below the mobile breakpoint .nav-links becomes position:fixed and leaves the
+   flex flow, so the toggle needs the auto margin to stay beside the burger
+   instead of stranding in the middle of the bar. */
+@media (max-width: 768px) {
+  .theme-toggle { margin-left: auto; margin-right: 1rem; }
+}
+
+/* ---------------------------------------------------------------------------
+   Hero + overlay bands keep the dark-theme ink in every theme.
+
+   .hero::before lays a dark radial wash over the section in ALL themes (and
+   the hero photos are dark themselves), so the panel behind this text never
+   turns light. Letting the light palette through made the title near-black on
+   a dark photo. Re-declaring the tokens at this scope is enough: children read
+   them through inheritance, including .hero-title strong, whose gradient would
+   otherwise darken to an unreadable teal.
+
+   The same applies to the work-experience band, which sits on a photo under
+   its own rgba(9,13,22,0.85) overlay.
+   --------------------------------------------------------------------------- */
+:root[data-theme="light"] .hero,
+:root[data-theme="light"] .linkedin-redirect-section {
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --accent-cyan: #00fffb;
+  --accent-blue: #2f81f7;
+  --gradient-neon: linear-gradient(135deg, #00fffb 0%, #2f81f7 100%);
+  color: #f0f6fc;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .hero,
+  :root:not([data-theme]) .linkedin-redirect-section {
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-muted: #6e7681;
+    --accent-cyan: #00fffb;
+    --accent-blue: #2f81f7;
+    --gradient-neon: linear-gradient(135deg, #00fffb 0%, #2f81f7 100%);
+    color: #f0f6fc;
   }
 }

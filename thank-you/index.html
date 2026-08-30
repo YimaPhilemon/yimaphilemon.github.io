@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You - Yima Philemon</title>
+
+  <meta name="description" content="Your message has been received. Yima Philemon will get back to you shortly." />
+  <!-- A post-submission page has nothing to offer search. Keeping it out of the
+       index also keeps it out of the sitemap by design. -->
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://yimaphilemon.github.io/thank-you/" />
+
+  <!-- Applies the stored theme before first paint, so the page can never flash
+       the wrong one. Kept inline and tiny for that reason. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('yp_theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { /* private mode: fall through to the system preference */ }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
+
+  <link rel="icon" type="image/svg+xml" href="/files/favicon.svg" />
+  <link rel="alternate icon" href="/files/favicon.svg" />
+  <link rel="apple-touch-icon" href="/files/favicon.svg" />
+  <meta name="theme-color" content="#090d16" />
+
+  <link rel="stylesheet" type="text/css" href="/files/main_style.css" />
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a href="/" class="logo">YIMA PHILEMON</a>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/gallery/">Gallery</a></li>
+        <li class="nav-item"><a href="/contact/">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z" />
+        </svg>
+      </button>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" style="min-height: 60vh;">
+    <div class="hero-content container">
+      <div class="thank-you-tick" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M4 12.5l5.2 5.2L20 7" fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+      <h1 class="hero-title" style="font-size: 3rem;" data-thanks-heading>Message
+        <strong>Received</strong><span data-thanks-name></span>
+      </h1>
+      <p class="hero-tagline" style="font-size: 1.15rem; margin-bottom: 0;">
+        Your message has landed in my inbox. I'll get back to you shortly.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top: 3rem;">
+    <div class="container" style="max-width: 760px;">
+      <div class="glass-card" style="margin-bottom: 2rem;">
+        <h2 style="color: var(--accent-cyan); margin-bottom: 1.25rem; font-size: 1.35rem;">What happens next</h2>
+        <ol style="color: var(--text-secondary); padding-left: 1.2rem; display: grid; gap: 0.85rem;">
+          <li>I read your message and reply, usually within a day.</li>
+          <li>We talk through the scope, the timeline, and what you need built.</li>
+          <li>Once that's agreed, work starts and you get regular previews.</li>
+        </ol>
+      </div>
+
+      <div class="glass-card">
+        <h2 style="color: var(--accent-cyan); margin-bottom: 1rem; font-size: 1.35rem;">In a hurry?</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+          If it's urgent, WhatsApp is the quickest way to reach me directly.
+        </p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="https://wa.me/2349120925909" target="_blank" rel="noopener">Chat on
+            WhatsApp</a>
+          <a class="btn btn-secondary" href="/gallery/">Browse the Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Yima Philemon. All rights reserved.</p>
+      <p><a href="/resources/">Recommended Tools</a> &middot; <a href="https://elevven11studio.github.io/"
+          target="_blank">Elevven11 Studio</a> &middot; <a href="https://synergigames.github.io/"
+          target="_blank">Synergi Games</a></p>
+    </div>
+  </footer>
+
+  <script src="/files/portfolio.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBP4PEKW8Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-QBP4PEKW8Z');
+  </script>
+</body>
+
+</html>

@@ -7,6 +7,17 @@
 
   <meta name="description" content="Get in touch with Yima Philemon. Unity developer, level designer, and software engineer available for contract and full-time positions." />
   <meta name="google-site-verification" content="1t5543jvOSEDM1yPPISqin7zWmaaZvg5aWjVOoiqsRU" />
+	<!-- Applies the stored theme before first paint, so the page can never flash
+	     the wrong one. Kept inline and tiny for that reason. -->
+	<script>
+		(function () {
+			try {
+				var t = localStorage.getItem('yp_theme');
+				if (t) document.documentElement.setAttribute('data-theme', t);
+			} catch (e) { /* private mode: fall through to the system preference */ }
+		})();
+	</script>
+
   <link rel="canonical" href="https://yimaphilemon.github.io/contact/" />
 
   <!-- Hero background is the LCP element; preload it since inline CSS hides it from the preload scanner -->
@@ -36,6 +47,14 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
+  <!-- Square alternate: share dialogs that let you pick between linked
+       images (Facebook, LinkedIn) can offer this instead of a landscape
+       crop for mobile-style posts. -->
+  <meta property="og:image" content="https://yimaphilemon.github.io/files/og/contact-square.jpg" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Contact Yima Philemon for Unity and Flutter contract work" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@Yima_Philemon" />
@@ -125,6 +144,11 @@
         <li class="nav-item"><a href="/gallery/">Gallery</a></li>
         <li class="nav-item"><a href="/contact/">Contact</a></li>
       </ul>
+			<button class="theme-toggle" type="button" aria-label="Switch colour theme">
+				<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+				<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z"/></svg>
+			</button>
+
       <div class="hamburger">
         <span></span>
         <span></span>
@@ -185,61 +209,110 @@
               </div>
             </div>
 
-            <!-- Social Links / Extra Networks -->
+            <!-- Facebook Messenger. m.me/<username> opens a message thread
+                 directly; facebook.com/<username> would only open the profile. -->
             <div class="contact-info-item">
               <div class="contact-info-icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.3 2 2 6.16 2 11.7c0 2.9 1.18 5.42 3.1 7.16c.16.15.26.35.27.57l.05 1.75c.02.56.6.92 1.11.7l1.95-.86c.17-.08.36-.09.54-.04c.94.26 1.94.4 2.98.4c5.7 0 10-4.16 10-9.7C22 6.16 17.7 2 12 2zm6 7.46l-2.94 4.66c-.47.74-1.47.92-2.16.4l-2.34-1.75a.6.6 0 0 0-.72 0l-3.16 2.4c-.42.32-.97-.18-.68-.63l2.94-4.66c.47-.74 1.47-.92 2.16-.4l2.34 1.75a.6.6 0 0 0 .72 0l3.16-2.4c.42-.32.97.18.68.63z"/></svg>
               </div>
               <div class="contact-info-text">
-                <h3>Online Networks</h3>
-                <div style="font-size: 0.95rem; line-height: 1.8; color: var(--text-secondary); margin-top: 0.25rem;">
-                  <strong>X.COM /</strong> <a href="https://x.com/Yima_Philemon" target="_blank">Yima Philemon</a><br />
-                  <strong>LinkedIn /</strong> <a href="https://www.linkedin.com/in/yima-philemon-b07b161b9" target="_blank">Yima Philemon</a><br />
-                  <strong>Behance /</strong> <a href="https://www.behance.net/yimaphilemon" target="_blank">Yima Philemon</a><br />
-                  <strong>Facebook /</strong> <a href="http://facebook.com/philemon.unity.1/" target="_blank">Philemon Unity</a><br />
-                  <strong>Discord /</strong> <span>yimaphilemon</span> (or Yimaphilemon#2617)<br />
-                  <strong>Indiedoers /</strong> <a href="https://indiedoers.com/doer/yima-philemon-" target="_blank">Yima Philemon</a><br />
-                  <strong>Upwork /</strong> <a href="https://www.upwork.com/freelancers/~01360e1924a555adc2" target="_blank">Yima P.</a>
-                </div>
+                <h3>Facebook Messenger</h3>
+                <p><a href="https://m.me/philemon.unity.1" target="_blank" rel="noopener">Message me on Facebook</a></p>
               </div>
             </div>
           </div>
+
+            <!-- Online networks, as icon buttons rather than a list — same
+                 .social-icon treatment the homepage hero uses. Discord is absent
+                 deliberately: it is a handle to copy (yimaphilemon), not a URL to
+                 link to, so it sits with the details above instead. -->
+            <h3 style="font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin: 2.5rem 0 1.25rem;">
+              Find Me Online</h3>
+            <div class="social-links" style="justify-content: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 0;">
+              <a class="social-icon" href="https://www.linkedin.com/in/yima-philemon-b07b161b9" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" /></svg>
+              </a>
+              <a class="social-icon" href="https://github.com/YimaPhilemon" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+              </a>
+              <a class="social-icon" href="https://x.com/Yima_Philemon" target="_blank" rel="noopener" aria-label="X">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+              </a>
+              <a class="social-icon" href="https://www.upwork.com/freelancers/~01360e1924a555adc2" target="_blank" rel="noopener" aria-label="Upwork">
+                <svg viewBox="0 0 24 24"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" /></svg>
+              </a>
+              <a class="social-icon" href="https://www.behance.net/yimaphilemon" target="_blank" rel="noopener" aria-label="Behance">
+                <svg viewBox="0 0 24 24"><path d="M7.443 5.35c.639 0 1.23.05 1.77.198.541.099 1.001.297 1.383.544.382.297.673.643.874 1.087.198.445.298.99.298 1.585 0 .693-.148 1.286-.481 1.732-.324.446-.815.84-1.442 1.135.85.248 1.492.693 1.917 1.286.425.594.628 1.336.628 2.177 0 .692-.129 1.286-.386 1.781-.258.495-.62.94-1.061 1.237-.451.297-.977.545-1.564.693-.573.148-1.169.198-1.756.198H0V5.35h7.443zm-.395 5.446c.529 0 .967-.129 1.302-.376.334-.248.49-.673.49-1.235 0-.31-.058-.594-.169-.792-.111-.198-.267-.347-.457-.446-.19-.099-.406-.166-.65-.198-.244-.033-.497-.05-.767-.05H3.24v3.097h3.808zm.203 5.744c.294 0 .576-.033.837-.083.26-.05.49-.148.681-.28.19-.132.343-.313.457-.545.114-.231.171-.53.171-.877 0-.677-.19-1.16-.571-1.45-.381-.29-.888-.435-1.517-.435H3.24v3.67h4.011zM16.9 16.048c.44.427 1.073.641 1.9.641.593 0 1.104-.148 1.532-.446.427-.297.689-.611.786-.941h2.542c-.407 1.26-1.03 2.161-1.871 2.706-.84.544-1.856.816-3.049.816-.83 0-1.578-.132-2.245-.396a4.73 4.73 0 0 1-1.699-1.128 5.024 5.024 0 0 1-1.074-1.749c-.253-.677-.38-1.42-.38-2.23 0-.784.13-1.51.39-2.18a5.09 5.09 0 0 1 1.104-1.766 5.15 5.15 0 0 1 1.71-1.17c.665-.28 1.4-.42 2.204-.42.898 0 1.68.173 2.347.52a4.73 4.73 0 0 1 1.635 1.393c.427.578.735 1.24.923 1.983.19.743.257 1.52.203 2.33h-7.428c0 .833.28 1.61.72 2.037zm3.371-5.53c-.35-.383-.951-.59-1.665-.59-.466 0-.853.079-1.16.238-.308.158-.554.354-.74.588-.185.234-.313.481-.384.742a3.32 3.32 0 0 0-.132.652h4.6c-.067-.72-.169-1.247-.519-1.63zM15.083 5.982h5.8v1.41h-5.8z" /></svg>
+              </a>
+              <a class="social-icon" href="https://www.youtube.com/@synergiworkvidoes" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M21.58 7.19a3.03 3.03 0 0 0-2.12-2.12C17.59 4.5 12 4.5 12 4.5s-5.59 0-7.46.57a3.03 3.03 0 0 0-2.12 2.12C2 9.06 2 12 2 12s0 2.94.42 4.81a3.03 3.03 0 0 0 2.12 2.12c1.87.57 7.46.57 7.46.57s5.59 0 7.46-.57a3.03 3.03 0 0 0 2.12-2.12C22 14.94 22 12 22 12s0-2.94-.42-4.81zM9.54 15.56V8.44L15.81 12l-6.27 3.56z" /></svg>
+              </a>
+              <a class="social-icon" href="http://facebook.com/philemon.unity.1/" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z" /></svg>
+              </a>
+              <a class="social-icon" href="https://indiedoers.com/doer/yima-philemon-" target="_blank" rel="noopener" aria-label="Indiedoers">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z" /></svg>
+              </a>
+            </div>
         </div>
 
         <!-- Right: Modern Form (Zero external Weebly PHP dependency) -->
         <div class="glass-card">
           <div class="form-success-msg"></div>
+          <div class="form-error-msg" role="alert"></div>
 
           <form class="contact-form">
             <div class="form-group">
               <label class="form-label" for="form-name">Name *</label>
-              <input class="form-input" id="form-name" type="text" placeholder="Your name" required />
+              <input class="form-input" id="form-name" name="name" type="text" placeholder="Your name" required />
             </div>
 
             <div class="form-group">
               <label class="form-label" for="form-email">Email Address *</label>
-              <input class="form-input" id="form-email" type="email" placeholder="email@example.com" required />
+              <input class="form-input" id="form-email" name="email" type="email" placeholder="email@example.com" required />
             </div>
 
             <div class="form-group">
               <label class="form-label" for="form-msg">Comment / Message *</label>
-              <textarea class="form-input" id="form-msg" placeholder="Tell me about your project..." required></textarea>
+              <textarea class="form-input" id="form-msg" name="message" placeholder="Tell me about your project..." required></textarea>
             </div>
 
-            <button class="btn btn-primary" type="submit" style="width: 100%; padding: 1rem;">Send Message</button>
+            <p class="form-hint">
+              <strong>Send Message</strong> delivers it straight to my inbox &mdash; nothing else to do.
+              Prefer WhatsApp or your own mail app? Use the arrow beside the button, and I still get a copy here.
+            </p>
 
-            <div style="display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; color: var(--text-muted); font-size: 0.85rem;">
-              <hr class="styled-hr" style="flex: 1; margin: 0;" />
-              or
-              <hr class="styled-hr" style="flex: 1; margin: 0;" />
+
+            <!-- Split send button. The main half is a real type="submit", so native
+                 validation and Enter-in-a-field still work; the caret's options are
+                 type="button" and wired up in portfolio.js. -->
+            <div class="send-split" data-send-split>
+              <button class="btn btn-primary send-split-main" type="submit">Send Message</button>
+              <button class="btn btn-primary send-split-toggle" type="button" aria-haspopup="true"
+                aria-expanded="false" aria-label="Other ways to send">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="send-split-menu" role="menu">
+                <button class="send-split-option" type="button" role="menuitem" tabindex="-1"
+                  data-send="whatsapp">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.963L2 22l5.233-1.372a9.948 9.948 0 0 0 4.778 1.22h.005c5.505 0 9.988-4.478 9.99-9.985A9.97 9.97 0 0 0 12.012 2zm4.846 13.197c-.267.751-1.353 1.378-1.854 1.488c-.452.1-1.042.181-2.923-.6a10.974 10.974 0 0 1-4.707-4.148c-.689-.916-1.12-1.956-1.12-3.037c0-1.196.623-1.787.848-2.022c.189-.197.49-.297.79-.297c.1 0 .195.005.282.009c.28.013.42.03.602.413c.224.473.766 1.867.831 2.001c.066.134.11.291.02.467c-.087.177-.132.29-.265.447c-.132.156-.277.348-.396.467c-.131.131-.269.274-.117.535c.151.258.675 1.112 1.445 1.8c.995.888 1.826 1.162 2.087 1.293c.26.13.413.109.567-.068c.153-.177.656-.763.831-1.024c.174-.26.35-.219.588-.13c.24.089 1.517.716 1.78.85c.262.133.437.2.503.312c.066.113.066.657-.201 1.408z" />
+                  </svg>
+                  <span>Send on WhatsApp</span>
+                </button>
+                <button class="send-split-option" type="button" role="menuitem" tabindex="-1"
+                  data-send="email">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M3 6.5h18v11H3z M3 7l9 6 9-6" fill="none" stroke="currentColor"
+                      stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>Send by Email</span>
+                </button>
+              </div>
             </div>
-
-            <button class="btn btn-whatsapp" type="button" id="whatsapp-send-btn" style="width: 100%; padding: 1rem;">
-              <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor; margin-right: 0.6rem;">
-                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.963L2 22l5.233-1.372a9.948 9.948 0 0 0 4.778 1.22h.005c5.505 0 9.988-4.478 9.99-9.985A9.97 9.97 0 0 0 12.012 2zm4.846 13.197c-.267.751-1.353 1.378-1.854 1.488c-.452.1-1.042.181-2.923-.6a10.974 10.974 0 0 1-4.707-4.148c-.689-.916-1.12-1.956-1.12-3.037c0-1.196.623-1.787.848-2.022c.189-.197.49-.297.79-.297c.1 0 .195.005.282.009c.28.013.42.03.602.413c.224.473.766 1.867.831 2.001c.066.134.11.291.02.467c-.087.177-.132.29-.265.447c-.132.156-.277.348-.396.467c-.131.131-.269.274-.117.535c.151.258.675 1.112 1.445 1.8c.995.888 1.826 1.162 2.087 1.293c.26.13.413.109.567-.068c.153-.177.656-.763.831-1.024c.174-.26.35-.219.588-.13c.24.089 1.517.716 1.78.85c.262.133.437.2.503.312c.066.113.066.657-.201 1.408z" />
-              </svg>
-              Send via WhatsApp Instead
-            </button>
           </form>
         </div>
 
