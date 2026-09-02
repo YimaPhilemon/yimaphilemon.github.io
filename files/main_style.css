@@ -574,7 +574,7 @@ header.scrolled {
   padding-top: 1rem;
 }
 
-.rec-author-info h4 {
+.rec-author-info h3 {
   font-size: 1.1rem;
   color: var(--text-primary);
 }
@@ -1833,4 +1833,44 @@ footer a:hover {
     --gradient-neon: linear-gradient(135deg, #00fffb 0%, #2f81f7 100%);
     color: #f0f6fc;
   }
+}
+
+/* ===========================================================================
+   Visible focus
+   .btn and .form-input both set outline:none, which left keyboard users with
+   no idea where they were. :focus-visible restores a ring for keyboard
+   navigation only, so a mouse click still doesn't draw one.
+   =========================================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* The ring would be clipped by the pill radius, so these draw it as a shadow
+   that follows their own shape instead. */
+.btn:focus-visible,
+.social-icon:focus-visible,
+.theme-toggle:focus-visible,
+.fab-toggle:focus-visible,
+.fab-action:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 6px var(--accent-cyan);
+}
+
+.form-input:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 1px;
+}
+
+/* Footer links measured 128x18: under the ~24px a finger needs. The padding
+   brings the target up without moving the text. */
+footer a {
+  display: inline-block;
+  padding: 0.35rem 0.15rem;
 }

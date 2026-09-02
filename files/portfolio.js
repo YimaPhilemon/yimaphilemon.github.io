@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactFab();
   initTheme();
   initThankYou();
+  titleLinkedInBadgeFrame();
   initLocalClock();
   initGithubStats();
   initGithubPinnedRepos();
@@ -832,4 +833,34 @@ function initTheme() {
 
   apply(current());
   btn.addEventListener('click', () => apply(current() === 'light' ? 'dark' : 'light'));
+}
+
+/**
+ * Titles the LinkedIn badge iframe.
+ *
+ * The badge script injects its own iframe, and an iframe with no title is
+ * announced as just "frame". We cannot add the attribute in the markup because
+ * the element does not exist until LinkedIn’s script runs, so this watches for
+ * it and labels it on arrival. The observer disconnects once it has done its job,
+ * or after 15s if the script never loads (blocked, offline).
+ */
+function titleLinkedInBadgeFrame() {
+  const host = document.querySelector('.LI-profile-badge');
+  if (!host) return;
+
+  const label = (frame) => {
+    if (frame.getAttribute('title')) return false;
+    frame.setAttribute('title', 'Yima Philemon on LinkedIn');
+    return true;
+  };
+
+  const existing = host.querySelector('iframe');
+  if (existing && label(existing)) return;
+
+  const observer = new MutationObserver(() => {
+    const frame = host.querySelector('iframe');
+    if (frame && label(frame)) observer.disconnect();
+  });
+  observer.observe(host, { childList: true, subtree: true });
+  setTimeout(() => observer.disconnect(), 15000);
 }
