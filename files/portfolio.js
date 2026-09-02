@@ -63,6 +63,7 @@ function initNavbar() {
       e.preventDefault();
       navLinks.classList.toggle('active');
       hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', String(hamburger.classList.contains('active')));
       
       // Animate hamburger lines
       const spans = hamburger.querySelectorAll('span');
@@ -82,6 +83,7 @@ function initNavbar() {
       if (e.target.tagName === 'A') {
         navLinks.classList.remove('active');
         hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
         const spans = hamburger.querySelectorAll('span');
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';

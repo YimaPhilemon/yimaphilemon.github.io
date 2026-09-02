@@ -14,7 +14,9 @@
   --bg-tertiary: #172033;
   --text-primary: #f0f6fc;
   --text-secondary: #8b949e;
-  --text-muted: #6e7681;
+  /* Lightened from #6e7681, which measured 4.23:1 — under the 4.5 AA floor
+     for normal text. This is 5.22:1 on --bg-primary, 4.94:1 on --bg-secondary. */
+  --text-muted: #7d8590;
   --accent-cyan: #00fffb;
   --accent-blue: #2f81f7;
   --accent-green: #3fb950;
@@ -223,6 +225,11 @@ header.scrolled {
   width: 24px;
   height: 18px;
   cursor: pointer;
+  /* It is a <button> now, for keyboard and screen-reader access, so the
+     default control chrome has to come off. */
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .hamburger span {
@@ -1509,7 +1516,9 @@ footer a:hover {
 }
 
 .fab-action-messenger {
-  background: #0084ff;
+  /* Meta’s current Messenger blue. The older #0084ff put white text at
+     3.66:1, under the AA floor. */
+  background: #0866ff;
   color: #ffffff;
 }
 
@@ -1650,7 +1659,7 @@ footer a:hover {
   --bg-tertiary: #dbe2ec;
   --text-primary: #0c1220;
   --text-secondary: #4a5568;
-  --text-muted: #6b7688;
+  --text-muted: #5f6875;
 
   /* The neon cyan is tuned for a dark ground and is close to invisible on a
      light one, so it goes considerably deeper here. */
@@ -1685,7 +1694,7 @@ footer a:hover {
     --bg-tertiary: #dbe2ec;
     --text-primary: #0c1220;
     --text-secondary: #4a5568;
-    --text-muted: #6b7688;
+    --text-muted: #5f6875;
 
     --accent-cyan: #067d78;
     --accent-blue: #1b5fc4;
@@ -1806,7 +1815,7 @@ footer a:hover {
 :root[data-theme="light"] .linkedin-redirect-section {
   --text-primary: #f0f6fc;
   --text-secondary: #8b949e;
-  --text-muted: #6e7681;
+  --text-muted: #7d8590;
   --accent-cyan: #00fffb;
   --accent-blue: #2f81f7;
   --gradient-neon: linear-gradient(135deg, #00fffb 0%, #2f81f7 100%);
@@ -1818,7 +1827,7 @@ footer a:hover {
   :root:not([data-theme]) .linkedin-redirect-section {
     --text-primary: #f0f6fc;
     --text-secondary: #8b949e;
-    --text-muted: #6e7681;
+    --text-muted: #7d8590;
     --accent-cyan: #00fffb;
     --accent-blue: #2f81f7;
     --gradient-neon: linear-gradient(135deg, #00fffb 0%, #2f81f7 100%);
