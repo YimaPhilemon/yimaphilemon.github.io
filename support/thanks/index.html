@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You - Yima Philemon</title>
 
-  <meta name="description" content="Your message has been received. Yima Philemon will get back to you shortly." />
-  <!-- A post-submission page has nothing to offer search. Keeping it out of the
-       index also keeps it out of the sitemap by design. -->
+  <meta name="description" content="Thank you for supporting the work." />
+  <!-- Reached only by Paystack's redirect after a successful payment, so it has
+       nothing to offer a searcher and would be a dead end if indexed. Kept out
+       of sitemap.xml for the same reason, same as /thank-you/. -->
   <meta name="robots" content="noindex, follow" />
-  <link rel="canonical" href="https://yimaphilemon.github.io/thank-you/" />
+  <link rel="canonical" href="https://yimaphilemon.github.io/support/thanks/" />
 
   <!-- Applies the stored theme before first paint, so the page can never flash
        the wrong one. Kept inline and tiny for that reason. -->
@@ -65,9 +66,9 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" data-support-thanks>
 
-  <section class="hero" style="min-height: 60vh;">
+  <section class="hero" style="min-height: 55vh;">
     <div class="hero-content container">
       <div class="thank-you-tick" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false">
@@ -75,11 +76,9 @@
             stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
-      <h1 class="hero-title" style="font-size: 3rem;" data-thanks-heading>Message
-        <strong>Received</strong><span data-thanks-name></span>
-      </h1>
+      <h1 class="hero-title" style="font-size: 3rem;">Thank <strong>You</strong></h1>
       <p class="hero-tagline" style="font-size: 1.15rem; margin-bottom: 0;">
-        Your message has landed in my inbox. I'll get back to you shortly.
+        That genuinely helps, and it is not something I take for granted.
       </p>
     </div>
   </section>
@@ -87,28 +86,35 @@
   <section style="padding-top: 3rem;">
     <div class="container" style="max-width: 760px;">
       <div class="glass-card" style="margin-bottom: 2rem;">
-        <h2 style="color: var(--accent-cyan); margin-bottom: 1.25rem; font-size: 1.35rem;">What happens next</h2>
-        <ol style="color: var(--text-secondary); padding-left: 1.2rem; display: grid; gap: 0.85rem;">
-          <li>I read your message and reply, usually within a day.</li>
-          <li>We talk through the scope, the timeline, and what you need built.</li>
-          <li>Once that's agreed, work starts and you get regular previews.</li>
-        </ol>
+        <h2 style="color: var(--accent-cyan); margin-bottom: 1rem; font-size: 1.35rem;">Your receipt</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          Paystack emails a receipt to the address you entered, usually within a minute or two. It comes from
+          Paystack rather than from me, so check your spam folder if it has not arrived.
+        </p>
+        <p style="color: var(--text-secondary); margin: 0;">
+          There is nothing else for you to do. You are not being added to a mailing list, and I will not
+          follow up asking for more.
+        </p>
       </div>
 
-      <div class="glass-card">
-        <h2 style="color: var(--accent-cyan); margin-bottom: 1rem; font-size: 1.35rem;">In a hurry?</h2>
+      <div class="glass-card" style="margin-bottom: 2rem;">
+        <h2 style="color: var(--accent-cyan); margin-bottom: 1rem; font-size: 1.35rem;">If something looks
+          wrong</h2>
         <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-          If it's urgent, WhatsApp is the quickest way to reach me directly.
+          Charged twice, wrong amount, or no receipt after an hour? Tell me and I will sort it out. The date
+          and the amount are enough for me to find it.
         </p>
         <div class="btn-group">
-          <a class="btn btn-primary" href="https://wa.me/2349120925909" target="_blank" rel="noopener">Chat on
-            WhatsApp</a>
+          <a class="btn btn-primary" href="/contact/">Get in touch</a>
           <a class="btn btn-secondary" href="/gallery/">Browse the Gallery</a>
         </div>
       </div>
+
+      <p style="text-align: center; color: var(--text-secondary);">
+        Or <a href="/" style="color: var(--accent-cyan);">head back home</a>.
+      </p>
     </div>
   </section>
-
 
   </main>
 

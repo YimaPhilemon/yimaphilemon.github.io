@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support - Yima Philemon</title>
+
+  <meta name="description" content="Chip in towards the work if something here has been useful. Pay in NGN or USD by card, bank transfer or USSD through Paystack. Entirely optional." />
+
+  <!-- Applies the stored theme before first paint, so the page can never flash
+       the wrong one. Kept inline and tiny for that reason. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('yp_theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { /* private mode: fall through to the system preference */ }
+    })();
+  </script>
+
+  <link rel="canonical" href="https://yimaphilemon.github.io/support/" />
+
+  <!-- Hero background is the LCP element; preload it since inline CSS hides it from the preload scanner -->
+  <link rel="preload" as="image" href="/uploads/1/3/8/5/138506153/background-images/hero.webp" type="image/webp" />
+
+  <!-- Preconnect to third-party origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
+
+  <!-- The rate lookup and the payment page are both third-party and both needed
+       the moment someone touches the amount field, so the handshakes start now
+       rather than on first interaction. -->
+  <link rel="preconnect" href="https://open.er-api.com" />
+  <link rel="dns-prefetch" href="https://paystack.shop" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/files/favicon.svg" />
+  <link rel="alternate icon" href="/files/favicon.svg" />
+  <link rel="apple-touch-icon" href="/files/favicon.svg" />
+  <meta name="theme-color" content="#090d16" />
+
+  <!-- Open Graph / Social Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yima Philemon Portfolio" />
+  <meta property="og:title" content="Support - Yima Philemon" />
+  <meta property="og:description" content="Chip in towards the work if something here has been useful. Pay in NGN or USD by card, bank transfer or USSD through Paystack. Entirely optional." />
+  <meta property="og:url" content="https://yimaphilemon.github.io/support/" />
+  <meta property="og:image" content="https://yimaphilemon.github.io/files/og/home.jpg" />
+  <meta property="og:image:alt" content="Support Yima Philemon - pay what you like in NGN or USD" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <!-- Square alternate: share dialogs that let you pick between linked
+       images (Facebook, LinkedIn) can offer this instead of a landscape
+       crop for mobile-style posts. -->
+  <meta property="og:image" content="https://yimaphilemon.github.io/files/og/home-square.jpg" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Support Yima Philemon - pay what you like in NGN or USD" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Yima_Philemon" />
+  <meta name="twitter:title" content="Support - Yima Philemon" />
+  <meta name="twitter:description" content="Chip in towards the work if something here has been useful. Entirely optional, and it buys nothing." />
+  <meta name="twitter:image" content="https://yimaphilemon.github.io/files/og/home.jpg" />
+  <meta name="twitter:image:alt" content="Support Yima Philemon - pay what you like in NGN or USD" />
+
+  <!-- Modern Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="/files/main_style.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://yimaphilemon.github.io/support/#webpage",
+        "url": "https://yimaphilemon.github.io/support/",
+        "name": "Support - Yima Philemon",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://yimaphilemon.github.io/#website"
+        },
+        "about": {
+          "@id": "https://yimaphilemon.github.io/#person"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://yimaphilemon.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Support",
+            "item": "https://yimaphilemon.github.io/support/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Glassmorphic Navbar -->
+  <header>
+    <div class="container navbar">
+      <a href="/" class="logo">YIMA PHILEMON</a>
+      <ul class="nav-links" id="primary-nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/gallery/">Gallery</a></li>
+        <li class="nav-item"><a href="/contact/">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z"/></svg>
+      </button>
+      <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- Support Header Hero -->
+  <section class="hero" style="background-image: url('/uploads/1/3/8/5/138506153/background-images/hero.webp'); min-height: 45vh;">
+    <div class="hero-content container">
+      <h1 class="hero-title" style="font-size: 3rem;">Support the <strong>Work</strong></h1>
+      <p class="hero-tagline" style="font-size: 1.25rem; margin-bottom: 0;">If something here has been useful,
+        you can chip in. Entirely optional, and it buys nothing.</p>
+    </div>
+  </section>
+
+  <!-- Donation form. Collects the four fields Paystack's payment page accepts as
+       prefilled parameters, then hands off to it with all four locked, so the
+       amount confirmed here is the amount charged. Paystack settles in Naira
+       only - a USD contribution is converted at the live rate before the
+       handoff, and both figures are shown first. See initSupportForm and
+       getNgnPerUsd in portfolio.js. -->
+  <section id="give">
+    <div class="container" style="max-width: 640px;">
+      <h2 class="section-title">Pay What You Like</h2>
+
+      <div class="glass-card">
+        <div class="form-error-msg" role="alert"></div>
+
+        <form class="support-form" novalidate>
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label" for="sp-first">First Name *</label>
+              <input class="form-input" id="sp-first" name="first_name" type="text"
+                autocomplete="given-name" placeholder="First name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="sp-last">Last Name *</label>
+              <input class="form-input" id="sp-last" name="last_name" type="text"
+                autocomplete="family-name" placeholder="Last name" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="sp-email">Email *</label>
+            <input class="form-input" id="sp-email" name="email" type="email"
+              autocomplete="email" placeholder="you@example.com" required />
+            <p class="form-hint" style="margin: 0.5rem 0 0;">Paystack sends your receipt here. Nothing else is
+              sent to it.</p>
+          </div>
+
+          <!-- Radios rather than a button pair: this is a genuine either/or
+               choice, and a radio group arrows between its options and
+               announces itself without any ARIA of its own. -->
+          <div class="form-group">
+            <span class="form-label" id="sp-currency-label">Currency</span>
+            <div class="currency-switch" role="group" aria-labelledby="sp-currency-label">
+              <label class="currency-switch-option">
+                <input type="radio" name="currency" value="NGN" checked />
+                <span>NGN</span>
+              </label>
+              <label class="currency-switch-option">
+                <input type="radio" name="currency" value="USD" />
+                <span>USD</span>
+              </label>
+            </div>
+            <p class="form-hint" style="margin: 0.75rem 0 0;">Paystack collects in Naira. Choosing USD
+              converts at today's rate and shows you the Naira figure before you go through.</p>
+          </div>
+
+          <div class="form-group">
+            <span class="form-label" id="sp-amount-label">Amount</span>
+            <!-- Filled by initSupportForm so the presets follow the currency:
+                 NGN 5,000 / 15,000 / 30,000, or USD 5 / 15 / 30. -->
+            <div class="amount-grid" data-amount-presets role="group" aria-labelledby="sp-amount-label"></div>
+
+            <div class="amount-field">
+              <span class="amount-field-prefix" data-amount-prefix aria-hidden="true">NGN</span>
+              <input class="form-input" id="sp-amount" name="amount" type="number"
+                inputmode="decimal" min="500" step="500" placeholder="15000"
+                aria-label="Amount, or pick one above" required />
+            </div>
+            <p class="rate-note" data-rate-note></p>
+          </div>
+
+          <p class="amount-conversion" data-conversion role="status"></p>
+
+          <button class="btn btn-primary" type="submit" style="width: 100%;">Continue to Paystack</button>
+
+          <p class="form-hint" style="margin: 1rem 0 0;">
+            Card, bank transfer and USSD are all handled on Paystack's own page. This site never sees or
+            stores your card details.
+          </p>
+
+          <noscript>
+            <p class="form-hint" style="margin: 1rem 0 0;">
+              This form needs JavaScript to work out the Naira amount and pass your details along. You can
+              <a href="https://paystack.shop/pay/gol2ske2zh" target="_blank" rel="noopener">open the payment
+                page directly</a>
+              and fill it in yourself instead.
+            </p>
+          </noscript>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--bg-secondary);">
+    <div class="container" style="max-width: 720px;">
+      <h2 class="section-title">What This Is, And What It Isn't</h2>
+      <div class="glass-card">
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Everything on this site is free to look through: the gallery, the project write-ups, the
+          recommended tools list. There is no account to make and nothing behind a paywall. Keeping it online
+          and adding to it costs a little every month, and this page is where anyone who wants to help with
+          that can.
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+          It is not a payment for work. If you are hiring me to build something, that runs through the
+          <a href="/contact/" style="color: var(--accent-cyan);">contact page</a> and gets quoted properly, and
+          it has nothing to do with this page. Chipping in here does not move you up a queue, buy a discount,
+          or come with anything attached.
+        </p>
+        <p style="color: var(--text-muted); margin: 0;">
+          Contributions are not tax-deductible and are not refundable. Every payment is processed by Paystack,
+          which handles the card details and issues the receipt.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" style="max-width: 720px;">
+      <h2 class="section-title">Other Ways To Help</h2>
+      <div class="glass-card">
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Money is the least interesting way to support this, and these cost nothing:
+        </p>
+        <ul style="color: var(--text-secondary); padding-left: 1.25rem; margin-bottom: 1.5rem;">
+          <li style="margin-bottom: 0.6rem;">Pass the site on to someone hiring a Unity or Flutter developer.
+            One introduction is worth more than any amount on this page.</li>
+          <li style="margin-bottom: 0.6rem;">Follow or share something on
+            <a href="https://www.linkedin.com/in/yima-philemon-b07b161b9" target="_blank" rel="noopener"
+              style="color: var(--accent-cyan);">LinkedIn</a>,
+            <a href="https://x.com/Yima_Philemon" target="_blank" rel="noopener"
+              style="color: var(--accent-cyan);">X</a>
+            or <a href="https://www.behance.net/yimaphilemon" target="_blank" rel="noopener"
+              style="color: var(--accent-cyan);">Behance</a>.</li>
+          <li>Tell me what is missing or broken on the site. Corrections are genuinely useful, and the contact
+            form reaches me quickly.</li>
+        </ul>
+        <a href="/contact/" class="btn btn-secondary" style="width: 100%;">Send a message instead</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Yima Philemon. All rights reserved.</p>
+      <p><a href="/resources/">Recommended Tools</a> &middot; <a href="/support/">Support</a> &middot; <a href="https://elevven11studio.github.io/" target="_blank" rel="noopener">Elevven11 Studio</a> &middot; <a href="https://synergigames.github.io/" target="_blank" rel="noopener">Synergi Games</a></p>
+    </div>
+  </footer>
+
+  <!-- Handled by portfolio.js -->
+  <script src="/files/portfolio.js" defer></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBP4PEKW8Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QBP4PEKW8Z');
+  </script>
+</body>
+</html>
