@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initThankYou();
   initSupportForm();
   initSupportThanks();
-  titleLinkedInBadgeFrame();
   initLocalClock();
   initGithubStats();
   initGithubPinnedRepos();
@@ -837,36 +836,6 @@ function initTheme() {
   btn.addEventListener('click', () => apply(current() === 'light' ? 'dark' : 'light'));
 }
 
-/**
- * Titles the LinkedIn badge iframe.
- *
- * The badge script injects its own iframe, and an iframe with no title is
- * announced as just "frame". We cannot add the attribute in the markup because
- * the element does not exist until LinkedIn’s script runs, so this watches for
- * it and labels it on arrival. The observer disconnects once it has done its job,
- * or after 15s if the script never loads (blocked, offline).
- */
-function titleLinkedInBadgeFrame() {
-  const host = document.querySelector('.LI-profile-badge');
-  if (!host) return;
-
-  const label = (frame) => {
-    if (frame.getAttribute('title')) return false;
-    frame.setAttribute('title', 'Yima Philemon on LinkedIn');
-    return true;
-  };
-
-  const existing = host.querySelector('iframe');
-  if (existing && label(existing)) return;
-
-  const observer = new MutationObserver(() => {
-    const frame = host.querySelector('iframe');
-    if (frame && label(frame)) observer.disconnect();
-  });
-  observer.observe(host, { childList: true, subtree: true });
-  setTimeout(() => observer.disconnect(), 15000);
-}
-
 /* ===========================================================================
    Support page
    =========================================================================== */
@@ -1029,7 +998,7 @@ const PAYSTACK_PAGE = 'https://paystack.shop/pay/gol2ske2zh';
 // a bare type="number" accepts exponent notation, so "1e20" would otherwise
 // produce a straight-faced offer to charge NGN 100,000,000,000,000,000,000.
 const DONATION_PRESETS = {
-  NGN: { amounts: [5000, 15000, 30000], min: 500, max: 10000000, step: 500 },
+  NGN: { amounts: [5000, 15000, 30000], min: 1000, max: 10000000, step: 500 },
   USD: { amounts: [5, 15, 30], min: 1, max: 10000, step: 1 },
 };
 

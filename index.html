@@ -33,8 +33,8 @@
 	<link rel="dns-prefetch" href="https://www.youtube.com" />
 
 	<!-- Fonts -->
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" /></noscript>
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/svg+xml" href="/files/favicon.svg" />
@@ -120,6 +120,15 @@
 					"https://www.upwork.com/freelancers/~01360e1924a555adc2",
 					"https://youtube.com/@synergiworkvidoes"
 				]
+			},
+			{
+				"@type": "Service",
+				"@id": "https://yimaphilemon.github.io/#service",
+				"name": "Unity game and Flutter app development",
+				"serviceType": "Unity game development and Flutter app development",
+				"provider": { "@id": "https://yimaphilemon.github.io/#person" },
+				"areaServed": "Worldwide",
+				"description": "Mobile games, VR and AR experiences, level design and cross-platform Flutter apps, built to order."
 			},
 			{
 				"@type": "WebSite",
@@ -208,6 +217,8 @@
 
 <body>
 
+  <a class="skip-link" href="#main">Skip to main content</a>
+
 	<!-- Glassmorphic Navbar -->
 	<header>
 		<div class="container navbar">
@@ -233,8 +244,8 @@
 	<main id="main">
 
 	<!-- Hero Section -->
-	<section class="hero"
-		style="background-image: url('/uploads/1/3/8/5/138506153/background-images/hero.webp');">
+	<section class="hero u-1"
+	>
 		<div class="hero-content container">
 			<div class="hero-subtitle">Interactive Game & Mobile Experiences</div>
 			<h1 class="hero-title">Hi, I'm <strong>Yima Philemon</strong></h1>
@@ -294,16 +305,16 @@
 	<section id="about" class="about-section">
 		<div class="container">
 			<h2 class="section-title">Professional Summary</h2>
-			<div class="grid-2" style="align-items: top;">
+			<div class="grid-2 u-2">
 				<div class="glass-card">
-					<h3 style="color: var(--accent-cyan); margin-bottom: 1.5rem; font-size: 1.5rem;">Creative
+					<h3 class="u-3">Creative
 						Engineering</h3>
-					<p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.7;">
+					<p class="u-4">
 						Adept Software Engineer with extensive experience in mobile game development and virtual and
 						augmented reality. Proficient in C#, Dart, and Flutter app development, strongly focusing on
 						UI/UX design and game mechanics.
 					</p>
-					<p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">
+					<p class="u-5">
 						Demonstrated expertise in Photon Multiplayer integration, game optimization, and level design.
 						Adept at using Unity's Timeline, Cinemachine, and NavMesh to create immersive experiences.
 						Skilled in backend integration, RESTful APIs, and version control systems like Git. Known for
@@ -311,16 +322,13 @@
 					</p>
 				</div>
 
-				<!-- LinkedIn Badge Container -->
-				<div class="glass-card" style="display: flex; justify-content: center; align-items: center;">
-					<script src="https://platform.linkedin.com/badges/js/profile.js" async defer
-						type="text/javascript"></script>
-					<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark"
-						data-type="HORIZONTAL" data-vanity="yima-philemon-b07b161b9" data-version="v1">
-						<a class="badge-base__link LI-simple-link"
-							href="https://ng.linkedin.com/in/yima-philemon-b07b161b9?trk=profile-badge"
-							aria-label="Yima Philemon on LinkedIn"></a>
-					</div>
+				<!-- LinkedIn profile card. Replaces LinkedIn's badge widget, which they are retiring. -->
+				<div class="glass-card li-card">
+					<div class="li-card-avatar" aria-hidden="true">YP</div>
+					<h3>Yima Philemon</h3>
+					<p class="li-card-headline">Software Engineer | Level Designer | C# Programmer | Game Developer | Flutter Developer</p>
+					<p class="li-card-meta">Abuja, Nigeria</p>
+					<a class="btn btn-primary" href="https://www.linkedin.com/in/yima-philemon-b07b161b9" target="_blank" rel="noopener">View LinkedIn profile</a>
 				</div>
 			</div>
 		</div>
@@ -332,26 +340,26 @@
 	<section class="featured-role-section">
 		<div class="container">
 			<h2 class="section-title">Featured Role</h2>
-			<div class="glass-card" style="padding: 1.5rem;">
-				<div class="role-img-wrap" style="aspect-ratio: 16/9; margin-bottom: 1.5rem;">
+			<div class="glass-card u-6">
+				<div class="role-img-wrap u-7">
 					<a href="/uploads/1/3/8/5/138506153/image-008-0344_orig.webp">
 						<img width="1100" height="619" src="/uploads/1/3/8/5/138506153/image-008-0344_orig.webp" alt="Featured Role Banner" loading="lazy" decoding="async" />
 					</a>
 				</div>
 
-				<div class="role-img-wrap" style="aspect-ratio: 16/9; margin-top: 1.5rem;">
+				<div class="role-img-wrap u-8">
 					<a href="/uploads/1/3/8/5/138506153/capture003_orig.webp">
 						<img width="1366" height="641" src="/uploads/1/3/8/5/138506153/capture003.webp" alt="Featured gameplay screenshot" loading="lazy" decoding="async" />
 					</a>
 				</div>
-				<div class="role-img-wrap" style="aspect-ratio: 16/9;  margin-top: 1.5rem;">
+				<div class="role-img-wrap u-9">
 					<a href="/uploads/1/3/8/5/138506153/image-025-15009_orig.webp">
 						<img width="1100" height="619" src="/uploads/1/3/8/5/138506153/image-025-15009_orig.webp"
 							alt="Featured interface layout" loading="lazy" decoding="async" />
 					</a>
 				</div>
 
-				<div class="role-img-wrap" style="aspect-ratio: 16/9; margin-top: 1.5rem;">
+				<div class="role-img-wrap u-8">
 					<a href="/uploads/1/3/8/5/138506153/capture0000006_orig.webp">
 						<img width="1098" height="617" src="/uploads/1/3/8/5/138506153/capture0000006_orig.webp"
 							alt="Featured landscape level design" loading="lazy" decoding="async" />
@@ -367,8 +375,8 @@
 	<section class="repos-section">
 		<div class="container">
 			<h2 class="section-title">Open Source Utilities</h2>
-			<div class="glass-card" style="text-align: center;">
-				<p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+			<div class="glass-card u-10">
+				<p class="u-11">
 					Alongside apps and games, I maintain reusable Unity utility scripts and shared tooling for the
 					community. Live details, stars, and forks for each are down in the Developer Snapshot section.
 				</p>
@@ -382,22 +390,22 @@
 	<!-- QR Scan & Resumé CTAs Section -->
 	<section class="scan-cta-section">
 		<div class="container">
-			<div class="grid-2" style="align-items: center;">
-				<div class="glass-card" style="text-align: center;">
-					<h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent-cyan);">Scan to Chat</h3>
-					<div class="role-img-wrap"
-						style="max-width: 250px; margin: 0 auto 1rem; border-radius: var(--border-radius);">
+			<div class="grid-2 u-12">
+				<div class="glass-card u-10">
+					<h3 class="u-13">Scan to Chat</h3>
+					<div class="role-img-wrap u-14"
+					>
 						<a href="/uploads/1/3/8/5/138506153/wa-link-kw6gjo_orig.webp">
 							<img width="300" height="300" src="/uploads/1/3/8/5/138506153/wa-link-kw6gjo_orig.webp" alt="WhatsApp Chat QR" loading="lazy" decoding="async" />
 						</a>
 					</div>
-					<p style="font-weight: 700; color: var(--text-secondary);">SCAN ME (WHATSAPP CHAT)</p>
+					<p class="u-15">SCAN ME (WHATSAPP CHAT)</p>
 				</div>
 
 				<div class="glass-card"
 					style="display: flex; flex-direction: column; gap: 1.5rem; justify-content: center; height: 100%;">
-					<h3 style="font-size: 1.5rem; color: var(--accent-cyan);">Quick Links</h3>
-					<p style="color: var(--text-secondary);">Check out my official credentials, portfolio links, and
+					<h3 class="u-16">Quick Links</h3>
+					<p class="u-17">Check out my official credentials, portfolio links, and
 						active platforms to hire me directly.</p>
 					<div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
 						<a class="btn btn-primary"
@@ -473,7 +481,7 @@
 						<div
 							style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: var(--border-subtle);">
 							<img width="786" height="154" src="/uploads/1/3/8/5/138506153/screenshot-2024-02-24-161704_orig.webp" alt="T.D.A. H."
-								style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async" />
+							 class="u-18" loading="lazy" decoding="async" />
 						</div>
 						<div class="rec-author-info">
 							<h3>T.D.A. H.</h3>
@@ -494,7 +502,7 @@
 						<div
 							style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: var(--border-subtle);">
 							<img width="808" height="316" src="/uploads/1/3/8/5/138506153/screenshot-2023-09-16-103239_orig.webp"
-								alt="Julian Rocholl" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async" />
+								alt="Julian Rocholl" class="u-18" loading="lazy" decoding="async" />
 						</div>
 						<div class="rec-author-info">
 							<h3>Julian Rocholl</h3>
@@ -513,7 +521,7 @@
 						<div
 							style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: var(--border-subtle);">
 							<img width="2048" height="512" src="/uploads/1/3/8/5/138506153/gemini-generated-image-hcoycnhcoycnhcoy_orig.webp"
-								alt="LinkedIn client feedback" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async" />
+								alt="LinkedIn client feedback" class="u-18" loading="lazy" decoding="async" />
 						</div>
 						<div class="rec-author-info">
 							<h3>Tile Editor Client</h3>
@@ -523,7 +531,7 @@
 				</div>
 			</div>
 
-			<div style="text-align: center; margin-top: 3rem;">
+			<div class="u-19">
 				<a class="btn btn-primary"
 					href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=yima-philemon-b07b161b9"
 					target="_blank" rel="noopener">Follow on LinkedIn</a>
@@ -539,64 +547,64 @@
 			<h2 class="section-title">Published Projects</h2>
 
 			<!-- Application Grid -->
-			<h3 style="font-size: 1.5rem; text-align: center; margin-bottom: 2rem; color: var(--accent-purple);">
+			<h3 class="u-20">
 				Applications</h3>
-			<div class="grid-3" style="margin-bottom: 4rem;">
+			<div class="grid-3 u-21">
 				<a href="https://play.google.com/store/apps/details?id=co.vearth.helf&hl=en_US" target="_blank" rel="noopener"
-					class="glass-card" style="text-align: center; padding: 1.5rem;">
+					class="glass-card u-22">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/fEYsYrA0yKciPqa5/mw1920_unnamed.png"
-						alt="Helf App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
-					<h4 style="color: var(--text-primary);">Helf</h4>
+						alt="Helf App Icon" width="80" height="80" class="u-23" loading="lazy" decoding="async" />
+					<h4 class="u-24">Helf</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=co.vearth.helfbuddy&hl=en_US" target="_blank" rel="noopener"
-					class="glass-card" style="text-align: center; padding: 1.5rem;">
+					class="glass-card u-22">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/OsbTNAIqh5Yscww5/mw1920_unnamed.png"
-						alt="Helf Buddy App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
-					<h4 style="color: var(--text-primary);">Helf Buddy</h4>
+						alt="Helf Buddy App Icon" width="80" height="80" class="u-23" loading="lazy" decoding="async" />
+					<h4 class="u-24">Helf Buddy</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=co.vearth.vearth&hl=en_US" target="_blank" rel="noopener"
-					class="glass-card" style="text-align: center; padding: 1.5rem;">
+					class="glass-card u-22">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/TkbZ1sDaM4Y5IE0q/mw1920_unnamed.png"
-						alt="Vearth App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
-					<h4 style="color: var(--text-primary);">Vearth</h4>
+						alt="Vearth App Icon" width="80" height="80" class="u-23" loading="lazy" decoding="async" />
+					<h4 class="u-24">Vearth</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=com.morphbots.ballermatics&hl=en_US"
-					target="_blank" rel="noopener" class="glass-card" style="text-align: center; padding: 1.5rem;">
+					target="_blank" rel="noopener" class="glass-card u-22">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/cPgvYjgx1547FZSl/mw1920_unnamed.png"
-						alt="Ballermatics App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
-					<h4 style="color: var(--text-primary);">Ballermatics</h4>
+						alt="Ballermatics App Icon" width="80" height="80" class="u-23" loading="lazy" decoding="async" />
+					<h4 class="u-24">Ballermatics</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=com.MORPHBOTS.KDooKuckoo&hl=en_US"
-					target="_blank" rel="noopener" class="glass-card" style="text-align: center; padding: 1.5rem;">
+					target="_blank" rel="noopener" class="glass-card u-22">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/YXxhzqSgOCD9nUeL/mw1920_unnamed.png"
-						alt="KDooKuckoo App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
-					<h4 style="color: var(--text-primary);">KDooKuckoo</h4>
+						alt="KDooKuckoo App Icon" width="80" height="80" class="u-23" loading="lazy" decoding="async" />
+					<h4 class="u-24">KDooKuckoo</h4>
 				</a>
 
 				<a href="https://play.google.com/store/apps/details?id=co.morphbots.legends" target="_blank" rel="noopener"
-					class="glass-card" style="text-align: center; padding: 1.5rem;">
+					class="glass-card u-22">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/nEDCWWZnl3pas0Uw/mw1920_unnamed.png"
-						alt="Legends App Icon" width="80" height="80" style="width: 80px; margin: 0 auto 1rem; border-radius: 16px;" loading="lazy" decoding="async" />
-					<h4 style="color: var(--text-primary);">Legends</h4>
+						alt="Legends App Icon" width="80" height="80" class="u-23" loading="lazy" decoding="async" />
+					<h4 class="u-24">Legends</h4>
 				</a>
 			</div>
 
 			<!-- Flutter Packages Grid -->
-			<h3 style="font-size: 1.5rem; text-align: center; margin-bottom: 2rem; color: var(--accent-cyan);">Flutter
+			<h3 class="u-25">Flutter
 				Packages</h3>
-			<div class="grid-2" style="margin-bottom: 4rem;">
+			<div class="grid-2 u-21">
 				<a href="https://pub.dev/packages/easy_bubble_container" target="_blank" rel="noopener" class="glass-card"
 					style="display: flex; gap: 1.5rem; align-items: center;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/CnbwpwLkqiQ0RdwL/mw1920_pub-dev-icon-cover-image.png"
-						alt="easy_bubble_container icon" width="70" height="70" style="width: 70px; border-radius: 8px;" loading="lazy" decoding="async" />
+						alt="easy_bubble_container icon" width="70" height="70" class="u-26" loading="lazy" decoding="async" />
 					<div>
-						<h4 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+						<h4 class="u-27">
 							easy_bubble_container</h4>
-						<p style="font-size: 0.95rem; color: var(--text-secondary);">A highly customizable chat bubble
+						<p class="u-28">A highly customizable chat bubble
 							container with rounded corners and directional arrow alignment.</p>
 					</div>
 				</a>
@@ -604,34 +612,34 @@
 				<a href="https://pub.dev/packages/flutter_chat_paginator" target="_blank" rel="noopener" class="glass-card"
 					style="display: flex; gap: 1.5rem; align-items: center;">
 					<img src="https://d3jwyy9rhyhl55.cloudfront.net/v2/120878/contents/CnbwpwLkqiQ0RdwL/mw1920_pub-dev-icon-cover-image.png"
-						alt="flutter_chat_paginator icon" width="70" height="70" style="width: 70px; border-radius: 8px;" loading="lazy" decoding="async" />
+						alt="flutter_chat_paginator icon" width="70" height="70" class="u-26" loading="lazy" decoding="async" />
 					<div>
-						<h4 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.25rem;">
+						<h4 class="u-27">
 							flutter_chat_paginator</h4>
-						<p style="font-size: 0.95rem; color: var(--text-secondary);">Build high-performance scrollable
+						<p class="u-28">Build high-performance scrollable
 							chat UIs with real-time pagination and smooth lazy loading.</p>
 					</div>
 				</a>
 			</div>
 
 			<!-- Video Showcases Grid -->
-			<h3 style="font-size: 1.5rem; text-align: center; margin-bottom: 2rem; color: var(--accent-blue);">Showcase
+			<h3 class="u-29">Showcase
 				Video Reels</h3>
 
-			<h4 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-secondary); text-align: center;">
+			<h4 class="u-30">
 				Flutter App Showcase</h4>
-			<div class="video-card container" style="max-width: 700px; margin-bottom: 4rem;">
+			<div class="video-card container u-31">
 				<div class="video-container">
 					<iframe src="https://www.youtube.com/embed/HApSfpyNP0A?wmode=opaque" allowfullscreen title="Flutter Realtime Messaging System" loading="lazy"></iframe>
 				</div>
 				<div class="video-info">
 					<h3>Flutter Realtime Messaging System</h3>
-					<p style="color: var(--text-secondary);">Demonstration of responsive UI, smooth chat paginator,
+					<p class="u-17">Demonstration of responsive UI, smooth chat paginator,
 						bubble layout rendering, and optimized state handling.</p>
 				</div>
 			</div>
 
-			<h4 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-secondary); text-align: center;">
+			<h4 class="u-30">
 				Unity Game Showcases</h4>
 			<div class="video-grid">
 				<div class="video-card">
@@ -689,7 +697,7 @@
 				</div>
 			</div>
 
-			<div style="text-align: center; margin-top: 3rem;">
+			<div class="u-19">
 				<a href="/gallery/" class="btn btn-secondary">Explore Full Video Gallery & Screenshots</a>
 			</div>
 		</div>
@@ -698,12 +706,12 @@
 	<hr class="styled-hr" />
 
 	<!-- LinkedIn Experience Redirection Section -->
-	<section class="linkedin-redirect-section"
-		style="background-image: url('/uploads/1/3/8/5/138506153/background-images/experience-band.webp'); background-size: cover; background-position: center; position: relative;">
-		<div style="content: ''; position: absolute; inset: 0; background: rgba(9, 13, 22, 0.85); z-index: 1;"></div>
-		<div class="container" style="position: relative; z-index: 2; text-align: center; padding: 4rem 0;">
-			<h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Professional Work Experience</h2>
-			<p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem; font-size: 1.1rem;">Explore
+	<section class="linkedin-redirect-section u-32"
+	>
+		<div class="u-33"></div>
+		<div class="container u-34">
+			<h2 class="u-35">Professional Work Experience</h2>
+			<p class="u-36">Explore
 				my comprehensive professional history, job roles, contractor positions, and full career roadmap on
 				LinkedIn.</p>
 			<a class="btn btn-primary" href="https://www.linkedin.com/in/yima-philemon-b07b161b9/details/experience/"
@@ -729,7 +737,7 @@
 			</div>
 
 			<div class="glass-card">
-				<h3 style="color: var(--accent-cyan); margin-bottom: 1.5rem; font-size: 1.5rem;">🚀 My Tech Stack</h3>
+				<h3 class="u-3">🚀 My Tech Stack</h3>
 				<div class="tech-badges">
 					<img src="https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white"
 						alt="Unity" loading="lazy" />
@@ -747,16 +755,16 @@
 			</div>
 
 			<div class="glass-card">
-				<h3 style="color: var(--accent-cyan); margin-bottom: 1.5rem; font-size: 1.5rem;">📊 GitHub Stats</h3>
+				<h3 class="u-3">📊 GitHub Stats</h3>
 				<div class="grid-2 github-stats-grid" id="gh-stats-grid" data-gh-username="YimaPhilemon">
 					<p class="gh-loading">Loading live stats from GitHub…</p>
 				</div>
 			</div>
 
 			<div class="glass-card">
-				<h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem; font-size: 1.5rem;">📌 Pinned Repositories
+				<h3 class="u-37">📌 Pinned Repositories
 				</h3>
-				<p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">🔧 Utility marks shared
+				<p class="u-38">🔧 Utility marks shared
 					tooling repos rather than standalone apps/packages.</p>
 				<div class="grid-3 pinned-repos-grid" id="gh-pinned-repos"
 					data-gh-repos="YimaPhilemon/yimaphilemon.github.io,YimaPhilemon/flutterplugin,YimaPhilemon/easy_bubble_container,YimaPhilemon/chat_pagination,YimaPhilemon/UsefulScripts:utility,willyanibe/Unity-Script-Hub:utility">
@@ -771,10 +779,48 @@
 	</main>
 
 	<footer>
-		<div class="container">
-			<p>&copy; 2026 Yima Philemon. All rights reserved.</p>
-			<p><a href="/resources/">Recommended Tools</a> &middot; <a href="/support/">Support</a> &middot; <a href="https://elevven11studio.github.io/" target="_blank" rel="noopener">Elevven11 Studio</a> &middot; <a href="https://synergigames.github.io/" target="_blank" rel="noopener">Synergi Games</a></p>
-		</div>
+	  <div class="container">
+	    <div class="footer-grid">
+	      <div class="footer-brand">
+	        <a href="/" class="logo">YIMA PHILEMON</a>
+	        <p>Unity developer, level designer and Flutter engineer.</p>
+	        <a href="https://wa.me/2349120925909" target="_blank" rel="noopener">Chat on WhatsApp</a>
+	        <div class="footer-social">
+	          <a href="https://www.linkedin.com/in/yima-philemon-b07b161b9" target="_blank" rel="noopener" aria-label="Yima Philemon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 12.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-11h2.88v1.5h.04c.4-.76 1.38-1.56 2.84-1.56 3.03 0 3.6 2 3.6 4.59v6.47z"/></svg></a>
+	          <a href="https://github.com/YimaPhilemon" target="_blank" rel="noopener" aria-label="Yima Philemon on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+	          <a href="https://x.com/Yima_Philemon" target="_blank" rel="noopener" aria-label="Yima Philemon on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+	          <a href="https://www.youtube.com/@synergiworkvidoes" target="_blank" rel="noopener" aria-label="Synergi Games on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.500 0 9.400-.5a3 3 0 0 0 2.100-2.100c.5-1.900.5-5.800.5-5.800s0-3.900-.5-5.800zM9.600 15.600V8.400l6.200 3.600-6.200 3.600z"/></svg></a>
+	          <a href="https://facebook.com/philemon.unity.1/" target="_blank" rel="noopener" aria-label="Yima Philemon on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-6.93h-2.4v-2.87h2.4v-2.19c0-2.39 1.44-3.72 3.62-3.72 1.05 0 2.15.19 2.15.19v2.36h-1.21c-1.19 0-1.56.74-1.56 1.5v1.86h2.66l-.43 2.87h-2.23v6.93c4.56-.93 8-4.96 8-9.8z"/></svg></a>
+	        </div>
+	      </div>
+	      <nav class="footer-col" aria-label="Explore">
+	        <h2>Explore</h2>
+	        <ul>
+	          <li><a href="/">Home</a></li>
+	          <li><a href="/gallery/">Gallery</a></li>
+	          <li><a href="/resources/">Recommended Tools</a></li>
+	        </ul>
+	      </nav>
+	      <nav class="footer-col" aria-label="Studios">
+	        <h2>Studios</h2>
+	        <ul>
+	          <li><a href="https://elevven11studio.github.io/" target="_blank" rel="noopener">Elevven11 Studio</a></li>
+	          <li><a href="https://synergigames.github.io/" target="_blank" rel="noopener">Synergi Games</a></li>
+	        </ul>
+	      </nav>
+	      <nav class="footer-col" aria-label="Contact">
+	        <h2>Contact</h2>
+	        <ul>
+	          <li><a href="/contact/">Get in touch</a></li>
+	          <li><a href="/support/">Support</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+	        </ul>
+	      </nav>
+	    </div>
+	    <div class="footer-bottom">
+	      <p>&copy; 2026 Yima Philemon. All rights reserved.</p>
+	    </div>
+	  </div>
 	</footer>
 
 	<!-- Lightbox Target Overlay inside portfolio.js handles trigger -->
@@ -788,7 +834,6 @@
 		gtag('js', new Date());
 		gtag('config', 'G-QBP4PEKW8Z');
 	</script>
-	<script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
 </body>
 
 </html>

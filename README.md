@@ -6,12 +6,13 @@ A static site, no build step or framework — plain HTML, CSS, and vanilla JavaS
 
 ## Features
 
-- Dark glassmorphic design system (`files/main_style.css`)
+- Dark glassmorphic design system with a light theme toggle and a faint dotted texture (`files/main_style.css`)
 - Responsive nav, lightbox gallery, and screenshot slideshow (`files/portfolio.js`)
 - Contact form wired to a Google Sheet via a Google Apps Script Web App (no backend to host) — see `files/google-apps-script.gs.txt`
 - "Developer Snapshot" section that pulls live GitHub stats and pinned repos straight from GitHub's public REST API, with graceful fallbacks if the API is rate-limited
 - Clean folder-based URLs (`/gallery/`, `/contact/`, `/resources/`) with redirect stubs for the old `.html` links
-- SEO basics: sitemap (with image sitemap extension), robots.txt, Open Graph/Twitter meta tags, and JSON-LD structured data
+- Accessibility basics: skip link, sized font fallback, non-blocking font load, visible focus rings
+- SEO basics: sitemap (with image sitemap extension) and `sitemap.txt`, robots.txt, Open Graph/Twitter meta tags, and JSON-LD structured data
 
 ## Project structure
 
@@ -20,13 +21,16 @@ index.html            Home page
 gallery/index.html     Gallery ( /gallery/ )
 contact/index.html     Contact ( /contact/ )
 resources/index.html   Recommended tools / affiliate links ( /resources/ )
+support/index.html     Support the work ( /support/ )
+thank-you/index.html  Post-submission confirmation (noindex)
+404.html               Not-found page
 files/
   main_style.css        Styles
   portfolio.js          All client-side JS
   favicon.svg           Site icon
   google-apps-script.gs.txt   Backend for the contact form (paste into Google Apps Script)
 uploads/                Images and screenshots
-sitemap.xml, robots.txt Search engine files
+sitemap.xml, sitemap.txt, robots.txt   Search engine files
 ```
 
 `gallery.html`, `contact.html`, and `resources.html` at the root are redirect stubs kept for old bookmarks/links — the real pages live at the folder URLs above.

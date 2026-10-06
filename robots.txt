@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://yimaphilemon.github.io/sitemap.xml
+Sitemap: https://yimaphilemon.github.io/sitemap.txt
